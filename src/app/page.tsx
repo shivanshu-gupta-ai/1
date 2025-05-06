@@ -2,6 +2,10 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/heroSection";
 import About from "@/components/about";
 import SplashCursor from "@/blocks/Animations/SplashCursor/SplashCursor";
+import Projects from "@/components/projects";
+import ExperienceSection from "@/components/experience";
+import Skills from "@/components/skills";
+import ContactSection from "@/components/contact";
 
 export default function Home() {
   return (
@@ -9,6 +13,12 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <About />
+      <Projects />
+      
+      <ExperienceSection />
+      <Skills />
+      <ContactSection />
+      {/* SplashCursor animation */}
       <SplashCursor
         SIM_RESOLUTION={128}
         DYE_RESOLUTION={1440}
