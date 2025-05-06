@@ -62,7 +62,7 @@ const navbarHeight = {
         <div className="flex items-center justify-between">
           <a href="/" className={`font-bold transition-all duration-300 ${scrolled ? "text-xl" : "text-2xl"}`}>
             <span className="font-extrabold text-white">Shivanshu</span>
-            <p className="text-cyan-300 text-xs font-medium">Data Scientist</p>
+            <p className="text-cyan-500 text-xs font-medium">Data Scientist</p>
           </a>
 
           {isMobile ? (

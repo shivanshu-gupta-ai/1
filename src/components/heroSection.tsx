@@ -11,7 +11,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 mx-auto relative overflow-hidden pt-20">
+    <section className="w-full h-screen flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 mx-auto relative overflow-hidden pt-20">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
 
@@ -23,12 +23,12 @@ const HeroSection = () => {
                       animate-pulse duration-[15000ms]"
         />
 
-        {/* Smaller glow in bottom left - with reverse floating animation */}
+        {/* Smaller glow in bottom left - with reverse floating animation
         <div
           className="absolute w-80 h-80 rounded-full bg-blue-400/10 filter blur-3xl 
                      left-0 bottom-0 animate-pulse duration-[20000ms]"
           style={{ animationDelay: "2s" }}
-        />
+        /> */}
 
         {/* Small bright spot near center-right - with slow pulse */}
         <div
@@ -38,7 +38,7 @@ const HeroSection = () => {
         />
 
         {/* Very subtle overall tint */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 to-transparent"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 to-transparent"></div> */}
       </div>
 
       <div className="w-full flex flex-col md:flex-row justify-between items-center">
@@ -50,21 +50,17 @@ const HeroSection = () => {
             }`}
           >
             <h1 className="text-4xl md:text-4xl lg:text-4xl mt-16 leading-normal">
-              <span className="inline-block rounded-full bg-neutral-800 px-4 py-1 mb-6 text-sm text-white">
-                AI Product Manager{"   "}  •   Keynote Speaker   •   Data Storyteller
-              </span>
+              <p className="inline-block rounded-full bg-neutral-800 px-4 py-1 mb-6 text-sm text-white">
+                AI Product Manager<span>{"  "} • {"  "}</span>   Keynote Speaker   •   Data Storyteller
+              </p>
               <span className="text-5xl font-poppins font-semibold text-white">
-                Delivering{" "}
-                <span className="text-[#3AB0FF]">
-                  <strong>Businesses </strong>
+                Delivering {" "}
+                <span className="text-cyan-500">
+                  <strong>Business Value{" "}</strong>
                 </span>
-                <span>Value </span>
-                with Intelligent{" "}
-                <span className="text-[#3AB0FF]">
-                  <strong>Analytics </strong>
-                </span>
-                and{" "}
-                <span className="text-[#3AB0FF]">
+               
+                with{" "}
+                <span className="text-cyan-500">
                   <strong>AI-Powered </strong>
                 </span>
                 automation
@@ -77,7 +73,7 @@ const HeroSection = () => {
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <p className="text-xl text-gray-200 mt-6 mb-8 max-w-full">
+            <p className="text-2xl text-gray-200 mt-6 mb-8 max-w-full">
               I'm a data scientist specializing in product analytics, and AI
               driven intelligent tools that solve real-world problems.
             </p>
@@ -89,7 +85,7 @@ const HeroSection = () => {
             }`}
           >
             <div className="flex gap-4 mb-20">
-              <button className="bg-cyan-700 hover:bg-cyan-950 cursor-pointer text-white font-medium py-3 px-8 rounded-xl transition duration-300">
+              <button className="bg-cyan-600 hover:bg-cyan-950 cursor-pointer text-white text-lg   py-3 px-8 rounded-xl transition duration-300">
                 View My Work
               </button>
               <button className="cursor-pointer text-white border border-white hover:bg-white/5 font-medium py-3 px-8 rounded-xl transition duration-300">
@@ -115,33 +111,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll indicator at bottom */}
-      <div
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-1200 ${
-          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
-      >
-        <a
-          href="#about"
-          className="flex flex-col items-center animate-bounce duration-2000"
-        >
-          <span className="text-cyan-400 mb-2 text-sm">Scroll to explore</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-cyan-500 animate-pulse"
-          >
-            <path d="M12 5v14M5 12l7 7 7-7" />
-          </svg>
-        </a>
-      </div>
+      
     </section>
   );
 };
