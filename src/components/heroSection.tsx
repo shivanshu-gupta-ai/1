@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const HeroSection = () => {
   // Animation visibility state
@@ -73,8 +74,8 @@ const HeroSection = () => {
             }`}
           >
             <p className="text-xl md:text-2xl text-gray-200 mt-4 md:mt-6 mb-6 md:mb-8 max-w-full">
-              I'm a data scientist specializing in product analytics, and AI
-              driven intelligent tools that solve real-world problems.
+              I&apos;m a data scientist specializing in product analytics, and
+              AI driven intelligent tools that solve real-world problems.
             </p>
           </div>
 
@@ -101,9 +102,11 @@ const HeroSection = () => {
           }`}
         >
           <div className="relative w-full max-w-md">
-            <img
+            <Image
               src="/portfolio.jpeg"
               alt="Profile"
+              width={500}
+              height={300}
               className="relative z-10 rounded-lg w-full h-120 object-cover shadow-xl"
             />
           </div>

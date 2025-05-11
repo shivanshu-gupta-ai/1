@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -131,7 +132,7 @@ const Navbar = () => {
         }`}
       >
         <div className="flex items-center justify-between">
-          <a
+          <Link
             href="/"
             className={`font-bold transform-gpu will-change-transform ${
               isMobile
@@ -143,7 +144,7 @@ const Navbar = () => {
           >
             <span className="font-extrabold text-white">Shivanshu</span>
             <p className="text-cyan-500 text-xs font-medium">Data Scientist</p>
-          </a>
+          </Link>
 
           {isMobile ? (
             <>
@@ -165,14 +166,14 @@ const Navbar = () => {
                 <div className="absolute top-full left-0 right-0 bg-gray-900 py-4 px-4 border-b border-gray-800 transform-gpu will-change-transform">
                   <nav className="flex flex-col space-y-4">
                     {navLinks.map((link) => (
-                      <a
+                      <Link
                         key={link.name}
                         href={link.href}
                         className="text-white hover:text-blue-400 py-2 transform-gpu will-change-transform"
                         onClick={closeMobileMenu}
                       >
                         {link.name}
-                      </a>
+                      </Link>
                     ))}
                   </nav>
                 </div>
@@ -181,7 +182,7 @@ const Navbar = () => {
           ) : (
             <nav className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   className={`text-white hover:text-blue-400 transition-all duration-500 ease-in-out transform-gpu will-change-transform ${
@@ -189,7 +190,7 @@ const Navbar = () => {
                   }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </nav>
           )}

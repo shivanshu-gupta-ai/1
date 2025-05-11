@@ -135,9 +135,7 @@ const ExperienceSection = () => {
         <h2 className="text-4xl font-bold mb-2">
           Work <span className="text-cyan-500">Experience</span>
         </h2>
-        <p className="text-xl text-gray-300 mb-16">
-          Organizations that I've contributed to
-        </p>
+        <p className="text-xl text-gray-300 mb-16">I&apos;ve worked on...</p>
       </div>
 
       {/* Timeline container - ensure it's visible */}
@@ -200,8 +198,7 @@ const ExperienceSection = () => {
                         ? "text-blue-400 hover:text-blue-300"
                         : "text-teal-400 hover:text-teal-300"
                     } transition-colors`}
-                  >
-                  </a>
+                  ></a>
                 </h3>
                 <div
                   className={`${
@@ -425,8 +422,7 @@ const ExperienceSection = () => {
         className={`w-full flex justify-center mt-8 transition-all duration-1000 delay-1000 ${
           visible ? "opacity-100" : "opacity-0"
         }`}
-      >
-      </div>
+      ></div>
     </section>
   );
 };
