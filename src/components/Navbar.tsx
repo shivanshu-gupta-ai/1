@@ -91,15 +91,6 @@ const Navbar = () => {
     []
   );
 
-  // Memoize navbar height to prevent recalculation
-  const navbarHeight = useMemo(
-    () => ({
-      initial: "py-1",
-      scrolled: "py-2",
-    }),
-    []
-  );
-
   // Memoize mobile menu toggle handler
   const toggleMobileMenu = useCallback(() => {
     setMobileMenuOpen((prev) => !prev);
