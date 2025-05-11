@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -9,52 +9,109 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Custom media query implementation
-  useEffect(() => {
-    const checkIfMobile = () => {
+  // Refs for RAF and throttling
+  const scrollRAF = useRef<number | null>(null);
+  const resizeRAF = useRef<number | null>(null);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
+
+  // Memoized media query check with RAF
+  const checkIfMobile = useCallback(() => {
+    if (resizeRAF.current) {
+      cancelAnimationFrame(resizeRAF.current);
+    }
+
+    resizeRAF.current = requestAnimationFrame(() => {
       setIsMobile(window.innerWidth <= 768);
+    });
+  }, []);
+
+  // Optimized resize handler with RAF
+  useEffect(() => {
+    const handleResize = () => {
+      if (resizeRAF.current) {
+        cancelAnimationFrame(resizeRAF.current);
+      }
+      resizeRAF.current = requestAnimationFrame(checkIfMobile);
     };
 
     // Check initially
     checkIfMobile();
 
-    // Add event listener
-    window.addEventListener("resize", checkIfMobile);
+    // Add event listener with RAF
+    window.addEventListener("resize", handleResize, { passive: true });
 
     // Clean up
-    return () => window.removeEventListener("resize", checkIfMobile);
-  }, []);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (resizeRAF.current) {
+        cancelAnimationFrame(resizeRAF.current);
+      }
+    };
+  }, [checkIfMobile]);
 
+  // Optimized scroll handler with RAF and throttling
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
+      lastScrollY.current = window.scrollY;
+
+      if (!ticking.current) {
+        if (scrollRAF.current) {
+          cancelAnimationFrame(scrollRAF.current);
+        }
+
+        scrollRAF.current = requestAnimationFrame(() => {
+          setScrolled(lastScrollY.current > 50);
+          ticking.current = false;
+        });
+
+        ticking.current = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollRAF.current) {
+        cancelAnimationFrame(scrollRAF.current);
+      }
+    };
   }, []);
 
-  const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
-    { name: "Skills", href: "#skills" },
-    { name: "Contact", href: "#contact" },
-  ];
+  // Memoize navLinks to prevent unnecessary re-renders
+  const navLinks = useMemo(
+    () => [
+      { name: "About", href: "#about" },
+      { name: "Projects", href: "#projects" },
+      { name: "Experience", href: "#experience" },
+      { name: "Skills", href: "#skills" },
+      { name: "Contact", href: "#contact" },
+    ],
+    []
+  );
 
-  // Reduced padding in non-scrolled state
-  const navbarHeight = {
-    initial: "py-1", // reduced from py-2
-    scrolled: "py-2",
-  };
+  // Memoize navbar height to prevent recalculation
+  const navbarHeight = useMemo(
+    () => ({
+      initial: "py-1",
+      scrolled: "py-2",
+    }),
+    []
+  );
+
+  // Memoize mobile menu toggle handler
+  const toggleMobileMenu = useCallback(() => {
+    setMobileMenuOpen((prev) => !prev);
+  }, []);
+
+  // Memoize mobile menu close handler
+  const closeMobileMenu = useCallback(() => {
+    setMobileMenuOpen(false);
+  }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 ${
+      className={`fixed top-0 left-0 right-0 z-50 transform-gpu will-change-transform ${
         isMobile
           ? "py-2 bg-gray-900 border-b border-gray-800"
           : `transition-all duration-500 ease-in-out ${
@@ -65,7 +122,7 @@ const Navbar = () => {
       }`}
     >
       <div
-        className={`container mx-auto px-4 ${
+        className={`container mx-auto px-4 transform-gpu will-change-transform ${
           isMobile
             ? "max-w-full"
             : `transition-all duration-500 ease-in-out ${
@@ -76,7 +133,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <a
             href="/"
-            className={`font-bold ${
+            className={`font-bold transform-gpu will-change-transform ${
               isMobile
                 ? "text-xl"
                 : `transition-all duration-500 ease-in-out ${
@@ -93,8 +150,9 @@ const Navbar = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                onClick={toggleMobileMenu}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                className="transform-gpu will-change-transform"
               >
                 {mobileMenuOpen ? (
                   <X className="h-6 w-6" />
@@ -104,14 +162,14 @@ const Navbar = () => {
               </Button>
 
               {mobileMenuOpen && (
-                <div className="absolute top-full left-0 right-0 bg-gray-900 py-4 px-4 border-b border-gray-800">
+                <div className="absolute top-full left-0 right-0 bg-gray-900 py-4 px-4 border-b border-gray-800 transform-gpu will-change-transform">
                   <nav className="flex flex-col space-y-4">
                     {navLinks.map((link) => (
                       <a
                         key={link.name}
                         href={link.href}
-                        className="text-white hover:text-blue-400 py-2"
-                        onClick={() => setMobileMenuOpen(false)}
+                        className="text-white hover:text-blue-400 py-2 transform-gpu will-change-transform"
+                        onClick={closeMobileMenu}
                       >
                         {link.name}
                       </a>
@@ -126,7 +184,7 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`text-white hover:text-blue-400 transition-all duration-500 ease-in-out ${
+                  className={`text-white hover:text-blue-400 transition-all duration-500 ease-in-out transform-gpu will-change-transform ${
                     scrolled ? "text-sm" : "text-base"
                   }`}
                 >
