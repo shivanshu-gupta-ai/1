@@ -117,7 +117,7 @@ const ExperienceSection = () => {
       {/* Section title with visibility transition */}
       <div className={`w-full transition-all duration-1000 delay-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
            style={{ zIndex: 1 }}> {/* Ensure z-index is set */}
-        <h2 className="text-4xl font-bold mb-2">Work Experience</h2>
+        <h2 className="text-4xl font-bold mb-2">Work <span className="text-cyan-500">Experience</span></h2>
         <p className="text-xl text-gray-300 mb-16">Organizations that I've contributed to</p>
       </div>
 

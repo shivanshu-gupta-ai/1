@@ -359,10 +359,9 @@ const Skills = () => {
                       </div>
                       <div className="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
                         <div
-                          className="h-full rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 transform transition-transform duration-1000 origin-left scale-x-0"
+                          className="h-full rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 transition-all duration-1000 ease-out"
                           style={{
-                            width: `${skill.proficiency}%`,
-                            transform: isVisible ? "scaleX(1)" : "scaleX(0)",
+                            width: isVisible ? `${skill.proficiency}%` : "0%",
                             transitionDelay: `${
                               1000 + index * 100 + skillIndex * 150
                             }ms`,
@@ -397,8 +396,20 @@ const Skills = () => {
           ].map((badge, index) => (
             <span
               key={index}
-              className={`px-4 py-2 bg-gray-800/80 text-sm text-gray-300 rounded-full border border-gray-700 transition-all duration-500 hover:border-cyan-500 hover:bg-gray-800 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/10`}
-              style={{ transitionDelay: `${2200 + index * 100}ms` }}
+              className={`
+    px-4 py-2
+    text-sm text-gray-300
+    rounded-full border border-gray-700
+    bg-white/20
+    bg-[length:200%_200%] bg-position-100
+    transition-transform duration-150 ease-out
+    transform-origin-center
+    will-change-transform
+
+    hover:border-2 hover:border-cyan-400
+    hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/20
+    hover:bg-position-0
+  `}
             >
               {badge}
             </span>

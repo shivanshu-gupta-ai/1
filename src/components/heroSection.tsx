@@ -11,7 +11,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="w-full h-screen flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 mx-auto relative overflow-hidden pt-20">
+    <section className="w-full h-screen flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 mx-auto relative overflow-hidden pt-16">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
 
@@ -58,7 +58,7 @@ const HeroSection = () => {
                 <span className="text-cyan-500">
                   <strong>Business Value{" "}</strong>
                 </span>
-               
+                
                 with{" "}
                 <span className="text-cyan-500">
                   <strong>AI-Powered </strong>

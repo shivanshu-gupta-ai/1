@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as THREE from "three";
 import dynamic from "next/dynamic";
+import { Linkedin, FileText, Youtube, Users } from "lucide-react";
 
 // Dynamically import the globe component with no SSR
 const Globe = dynamic(() => import("./Globe"), { ssr: false });
@@ -9,10 +10,16 @@ const Globe = dynamic(() => import("./Globe"), { ssr: false });
 const ContactSection = () => {
   // Animation visibility state
   const [isVisible, setIsVisible] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+
   const globeContainerRef = useRef<HTMLDivElement>(null);
+  const [hovered, setHovered] = useState<string | null>(null);
+
+  const socials = [
+    { name: "LinkedIn", icon: <Linkedin size={20} />, href: "#" },
+    { name: "Medium", icon: <FileText size={20} />, href: "#" },
+    { name: "YouTube", icon: <Youtube size={20} />, href: "#" },
+    { name: "Topmate", icon: <Users size={20} />, href: "#" },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,19 +42,6 @@ const ContactSection = () => {
       }
     };
   }, []);
-
-  // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log({ name, email, message });
-    // Reset form
-    setName("");
-    setEmail("");
-    setMessage("");
-    // Show confirmation
-    alert("Message sent! I will get back to you soon.");
-  };
 
   // Initialize the 3D globe
   useEffect(() => {
@@ -218,130 +212,39 @@ const ContactSection = () => {
           </p>
         </div>
 
-        {/* Contact Form */}
-        <div
-          className={`space-y-6 transition-all duration-1000 delay-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-300"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="mt-1 block w-full bg-gray-900/70 border border-gray-800 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
-              placeholder="Your Name"
-            />
-          </div>
+      <div className="max-w-md mx-auto p-6 rounded-xl bg-white/10 backdrop-blur-md bg-opacity-10 border border-white/50 text-white shadow-lg">
+        <h2 className="text-2xl font-bold mb-4">Connect With Me</h2>
+        <p className="text-gray-300 mb-6">
+          Feel free to connect with me on these platforms:
+        </p>
 
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-300"
+        <div className="space-y-3">
+          {socials.map((social) => (
+            <a
+              key={social.name}
+              href={social.href}
+              className="flex items-center gap-3 p-3 rounded-md transition-all duration-200 hover:bg-white/10"
+              onMouseEnter={() => setHovered(social.name)}
+              onMouseLeave={() => setHovered(null)}
             >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 block w-full bg-gray-900/70 border border-gray-800 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
-              placeholder="your.email@example.com"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-gray-300"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              rows={4}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className="mt-1 block w-full bg-gray-900/70 border border-gray-800 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
-              placeholder="How can I help you?"
-            ></textarea>
-          </div>
-
-          <div>
-            <button
-              onClick={handleSubmit}
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
-            >
-              Send Message
-            </button>
-          </div>
+              <span
+                className={`transition-all duration-200 ${
+                  hovered === social.name ? "text-white" : "text-gray-400"
+                }`}
+              >
+                {social.icon}
+              </span>
+              <span
+                className={`font-medium transition-all duration-200 ${
+                  hovered === social.name ? "text-white" : "text-gray-300"
+                }`}
+              >
+                {social.name}
+              </span>
+            </a>
+          ))}
         </div>
-
-        {/* Social Links */}
-        <div
-          className={`mt-10 flex space-x-6 justify-center md:justify-start transition-all duration-1000 delay-900 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <a
-            href="#"
-            className="text-gray-400 hover:text-cyan-400 transition-colors"
-          >
-            <span className="sr-only">LinkedIn</span>
-            <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-            </svg>
-          </a>
-
-          <a
-            href="#"
-            className="text-gray-400 hover:text-cyan-400 transition-colors"
-          >
-            <span className="sr-only">Medium</span>
-            <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M2.846 6.887c.03-.295-.083-.586-.303-.784l-2.24-2.7v-.403h6.958l5.378 11.795 4.728-11.795h6.633v.403l-1.916 1.837c-.165.126-.247.333-.213.538v13.498c-.034.204.048.411.213.537l1.871 1.837v.403h-9.412v-.403l1.939-1.882c.19-.19.19-.246.19-.537v-10.91l-5.389 13.688h-.728l-6.275-13.688v9.174c-.052.385.076.774.347 1.052l2.521 3.058v.404h-7.148v-.404l2.521-3.058c.27-.279.39-.67.325-1.052v-10.608z" />
-            </svg>
-          </a>
-
-          <a
-            href="#"
-            className="text-gray-400 hover:text-cyan-400 transition-colors"
-          >
-            <span className="sr-only">YouTube</span>
-            <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-            </svg>
-          </a>
-
-          <a
-            href="#"
-            className="text-gray-400 hover:text-cyan-400 transition-colors"
-          >
-            <span className="sr-only">Topmate</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-              />
-            </svg>
-          </a>
-        </div>
+      </div>
       </div>
 
       {/* 3D Globe - Right side */}
