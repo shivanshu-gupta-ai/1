@@ -1,30 +1,73 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
+    // Create observer only once
+    if (!observerRef.current) {
+      observerRef.current = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        },
+        { threshold: 0.1 }
+      );
+    }
 
     const element = document.getElementById("projects");
-    if (element) {
-      observer.observe(element);
+    if (element && observerRef.current) {
+      observerRef.current.observe(element);
     }
 
     return () => {
-      if (element) {
-        observer.unobserve(element);
+      if (element && observerRef.current) {
+        observerRef.current.unobserve(element);
+        observerRef.current.disconnect();
+        observerRef.current = null;
       }
     };
   }, []);
+
+  // Memoize the background elements
+  const backgroundElements = useMemo(
+    () => (
+      <div className="absolute inset-0 overflow-visible -z-10">
+        <div className="absolute w-96 h-96 rounded-full bg-purple-500/10 filter blur-3xl right-0 top-0 animate-pulse duration-[15000ms]" />
+        <div
+          className="absolute w-80 h-80 rounded-full bg-cyan-400/10 filter blur-3xl left-0 bottom-0 animate-pulse duration-[20000ms]"
+          style={{ animationDelay: "2s" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 to-transparent"></div>
+      </div>
+    ),
+    []
+  );
+
+  // Memoize the header section
+  const headerSection = useMemo(
+    () => (
+      <div
+        className={`transition-all duration-1000 delay-300 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
+        <h2 className="text-4xl font-bold text-center mb-8">
+          <span className="text-white">
+            Key <span className="text-cyan-500">Projects</span>
+          </span>
+        </h2>
+        <p className="text-xl text-white mb-16 leading-relaxed text-center max-w-3xl mx-auto">
+          A showcase of products I&apos;ve built and the measurable impact
+          they&apos;ve had on users and businesses.
+        </p>
+      </div>
+    ),
+    [isVisible]
+  );
 
   return (
     <section
@@ -35,41 +78,11 @@ const Projects = () => {
       <div className="absolute min-h-screen inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
 
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-visible -z-10">
-        {/* Main large glow in top right */}
-        <div
-          className="absolute w-96 h-96 rounded-full bg-purple-500/10 filter blur-3xl right-0 top-0 
-                      animate-pulse duration-[15000ms]"
-        />
-
-        {/* Smaller glow in bottom left */}
-        <div
-          className="absolute w-80 h-80 rounded-full bg-cyan-400/10 filter blur-3xl 
-                     left-0 bottom-0 animate-pulse duration-[20000ms]"
-          style={{ animationDelay: "2s" }}
-        />
-
-        {/* Very subtle overall tint */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 to-transparent"></div>
-      </div>
+      {backgroundElements}
 
       <div className="w-full max-w-6xl">
-        {/* Section header with fade-in animation */}
-        <div
-          className={`transition-all duration-1000 delay-300 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <h2 className="text-4xl font-bold text-center mb-8">
-            <span className="text-white">
-              Key <span className="text-cyan-500">Projects</span>
-            </span>
-          </h2>
-          <p className="text-xl text-white mb-16 leading-relaxed text-center max-w-3xl mx-auto">
-            A showcase of products I&apos;ve built and the measurable impact
-            they&apos;ve had on users and businesses.
-          </p>
-        </div>
+        {/* Section header */}
+        {headerSection}
 
         {/* Projects grid with staggered animations */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -329,11 +342,9 @@ const Projects = () => {
             </div>
           </div>
         </div>
-
-      
       </div>
     </section>
   );
 };
 
-export default Projects;
+export default React.memo(Projects);

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 
 // Define types for our data
 interface Skill {
@@ -24,112 +24,158 @@ const Skills = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   // Active skill category for potential interactivity
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
+    // Create observer only once
+    if (!observerRef.current) {
+      observerRef.current = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        },
+        { threshold: 0.1 }
+      );
+    }
 
     const element = document.getElementById("skills");
-    if (element) {
-      observer.observe(element);
+    if (element && observerRef.current) {
+      observerRef.current.observe(element);
     }
 
     return () => {
-      if (element) {
-        observer.unobserve(element);
+      if (element && observerRef.current) {
+        observerRef.current.unobserve(element);
+        observerRef.current.disconnect();
+        observerRef.current = null;
       }
     };
   }, []);
 
-  // Static particles data
-  const particles = [
-    {
-      id: 1,
-      top: "10%",
-      left: "20%",
-      duration: "8s",
-      delay: "0s",
-      opacity: 0.3,
-    },
-    {
-      id: 2,
-      top: "30%",
-      left: "80%",
-      duration: "12s",
-      delay: "1s",
-      opacity: 0.4,
-    },
-    {
-      id: 3,
-      top: "50%",
-      left: "40%",
-      duration: "10s",
-      delay: "2s",
-      opacity: 0.3,
-    },
-    {
-      id: 4,
-      top: "70%",
-      left: "60%",
-      duration: "9s",
-      delay: "0.5s",
-      opacity: 0.4,
-    },
-    {
-      id: 5,
-      top: "20%",
-      left: "70%",
-      duration: "11s",
-      delay: "1.5s",
-      opacity: 0.3,
-    },
-    {
-      id: 6,
-      top: "80%",
-      left: "30%",
-      duration: "13s",
-      delay: "2.5s",
-      opacity: 0.4,
-    },
-    {
-      id: 7,
-      top: "40%",
-      left: "90%",
-      duration: "7s",
-      delay: "0.2s",
-      opacity: 0.3,
-    },
-    {
-      id: 8,
-      top: "60%",
-      left: "10%",
-      duration: "14s",
-      delay: "1.2s",
-      opacity: 0.4,
-    },
-    {
-      id: 9,
-      top: "90%",
-      left: "50%",
-      duration: "9s",
-      delay: "2.2s",
-      opacity: 0.3,
-    },
-    {
-      id: 10,
-      top: "25%",
-      left: "85%",
-      duration: "11s",
-      delay: "0.7s",
-      opacity: 0.4,
-    },
-  ];
+  // Memoize the background elements
+  const backgroundElements = useMemo(
+    () => (
+      <div className="absolute inset-0 overflow-visible -z-10">
+        <div className="absolute w-96 h-96 rounded-full bg-purple-500/10 filter blur-3xl right-0 bottom-0 animate-pulse duration-[15000ms]" />
+        <div
+          className="absolute w-80 h-80 rounded-full bg-cyan-400/10 filter blur-3xl left-0 top-0 animate-pulse duration-[20000ms]"
+          style={{ animationDelay: "2s" }}
+        />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOFYwYzkuOTQgMCAxOCA4LjA2IDE4IDE4aDEuOHoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIgMikiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIi8+PC9nPjwvc3ZnPg==')] opacity-10"></div>
+      </div>
+    ),
+    []
+  );
+
+  // Memoize the particles data
+  const particles = useMemo(
+    () => [
+      {
+        id: 1,
+        top: "10%",
+        left: "20%",
+        duration: "8s",
+        delay: "0s",
+        opacity: 0.3,
+      },
+      {
+        id: 2,
+        top: "30%",
+        left: "80%",
+        duration: "12s",
+        delay: "1s",
+        opacity: 0.4,
+      },
+      {
+        id: 3,
+        top: "50%",
+        left: "40%",
+        duration: "10s",
+        delay: "2s",
+        opacity: 0.3,
+      },
+      {
+        id: 4,
+        top: "70%",
+        left: "60%",
+        duration: "9s",
+        delay: "0.5s",
+        opacity: 0.4,
+      },
+      {
+        id: 5,
+        top: "20%",
+        left: "70%",
+        duration: "11s",
+        delay: "1.5s",
+        opacity: 0.3,
+      },
+      {
+        id: 6,
+        top: "80%",
+        left: "30%",
+        duration: "13s",
+        delay: "2.5s",
+        opacity: 0.4,
+      },
+      {
+        id: 7,
+        top: "40%",
+        left: "90%",
+        duration: "7s",
+        delay: "0.2s",
+        opacity: 0.3,
+      },
+      {
+        id: 8,
+        top: "60%",
+        left: "10%",
+        duration: "14s",
+        delay: "1.2s",
+        opacity: 0.4,
+      },
+      {
+        id: 9,
+        top: "90%",
+        left: "50%",
+        duration: "9s",
+        delay: "2.2s",
+        opacity: 0.3,
+      },
+      {
+        id: 10,
+        top: "25%",
+        left: "85%",
+        duration: "11s",
+        delay: "0.7s",
+        opacity: 0.4,
+      },
+    ],
+    []
+  );
+
+  // Memoize the particles component
+  const particlesComponent = useMemo(
+    () => (
+      <div className="absolute inset-0 pointer-events-none">
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="absolute w-1 h-1 rounded-full bg-cyan-500/30"
+            style={{
+              top: particle.top,
+              left: particle.left,
+              opacity: particle.opacity,
+              animation: `floatParticle ${particle.duration} linear infinite`,
+              animationDelay: particle.delay,
+            }}
+          />
+        ))}
+      </div>
+    ),
+    [particles]
+  );
 
   // Skills data structured by category
   const skillCategories: SkillCategory[] = [
@@ -257,25 +303,13 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 mx-auto relative overflow-hidden py-12"
+      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 mx-auto relative overflow-hidden py-20"
     >
-      {/* Background elements - same style as in Projects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
+      {/* Subtle background gradient */}
+      <div className="absolute min-h-screen inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
 
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-visible -z-10">
-        {/* Main large glow in bottom right */}
-        <div className="absolute w-96 h-96 rounded-full bg-purple-500/10 filter blur-3xl right-0 bottom-0 animate-pulse duration-[15000ms]" />
-
-        {/* Smaller glow in top left */}
-        <div
-          className="absolute w-80 h-80 rounded-full bg-cyan-400/10 filter blur-3xl left-0 top-0 animate-pulse duration-[20000ms]"
-          style={{ animationDelay: "2s" }}
-        />
-
-        {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOFYwYzkuOTQgMCAxOCA4LjA2IDE4IDE4aDEuOHoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIgMikiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIi8+PC9nPjwvc3ZnPg==')] opacity-10"></div>
-      </div>
+      {backgroundElements}
 
       <div className="w-full max-w-6xl z-10">
         {/* Section header with fade-in animation */}
@@ -402,13 +436,14 @@ const Skills = () => {
     rounded-full border border-gray-700
     bg-white/20
     bg-[length:200%_200%] bg-position-100
-    transition-transform duration-150 ease-out
+    transition-all duration-150 ease-out
     transform-origin-center
     will-change-transform
-
+    relative
     hover:border-2 hover:border-cyan-400
     hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/20
     hover:bg-position-0
+    hover:z-10
   `}
             >
               {badge}
@@ -418,24 +453,10 @@ const Skills = () => {
       </div>
 
       {/* Animated subtle particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {particles.map((particle) => (
-          <div
-            key={particle.id}
-            className="absolute w-1 h-1 rounded-full bg-cyan-500/30"
-            style={{
-              top: particle.top,
-              left: particle.left,
-              opacity: particle.opacity,
-              animation: `floatParticle ${particle.duration} linear infinite`,
-              animationDelay: particle.delay,
-            }}
-          />
-        ))}
-      </div>
+      {particlesComponent}
 
-      {/* CSS keyframes for particle animation - using global style tag */}
-      <style jsx global>{`
+      {/* CSS keyframes for particle animation */}
+      <style jsx>{`
         @keyframes floatParticle {
           0% {
             transform: translateY(0) translateX(0);
@@ -454,4 +475,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default React.memo(Skills);

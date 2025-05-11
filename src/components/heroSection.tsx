@@ -11,7 +11,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="w-full h-screen flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 mx-auto relative overflow-hidden pt-16">
+    <section className="w-full min-h-screen flex flex-col items-center justify-center px-4 md:px-12 lg:px-24 mx-auto relative overflow-hidden pt-24 md:pt-16">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
 
@@ -22,13 +22,6 @@ const HeroSection = () => {
           className="absolute w-96 h-96 rounded-full bg-cyan-500/10 filter blur-3xl right-0 top-0 
                       animate-pulse duration-[15000ms]"
         />
-
-        {/* Smaller glow in bottom left - with reverse floating animation
-        <div
-          className="absolute w-80 h-80 rounded-full bg-blue-400/10 filter blur-3xl 
-                     left-0 bottom-0 animate-pulse duration-[20000ms]"
-          style={{ animationDelay: "2s" }}
-        /> */}
 
         {/* Small bright spot near center-right - with slow pulse */}
         <div
@@ -49,20 +42,26 @@ const HeroSection = () => {
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <h1 className="text-4xl md:text-4xl lg:text-4xl mt-16 leading-normal">
-              <p className="inline-block rounded-full bg-neutral-800 px-4 py-1 mb-6 text-sm text-white">
-                AI Product Manager<span>{"  "} • {"  "}</span>   Keynote Speaker   •   Data Storyteller
+            <h1 className="text-3xl md:text-4xl lg:text-4xl mt-4 md:mt-16 leading-normal flex flex-col">
+              <p className="rounded-full bg-neutral-800 px-3 py-1 mb-4 md:mb-6 text-xs md:text-sm text-white inline-block self-start">
+                AI Product Manager • Keynote Speaker • Data Storyteller
               </p>
-              <span className="text-5xl font-poppins font-semibold text-white">
-                Delivering {" "}
-                <span className="text-cyan-500">
-                  <strong>Business Value{" "}</strong>
-                </span>
-                
-                with{" "}
-                <span className="text-cyan-500">
-                  <strong>AI-Powered </strong>
-                </span>
+              <span className="text-4xl md:text-5xl font-poppins font-semibold text-white flex flex-col gap-1">
+                <p>
+                  Delivering{" "}
+                  <span className="text-cyan-500">
+                    <strong>Business </strong>
+                  </span>
+                </p>
+                <p>
+                  <span className="text-cyan-500">
+                    <strong>Value </strong>
+                  </span>
+                  with{" "}
+                  <span className="text-cyan-500">
+                    <strong>AI-Powered </strong>
+                  </span>
+                </p>
                 automation
               </span>
             </h1>
@@ -73,7 +72,7 @@ const HeroSection = () => {
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <p className="text-2xl text-gray-200 mt-6 mb-8 max-w-full">
+            <p className="text-xl md:text-2xl text-gray-200 mt-4 md:mt-6 mb-6 md:mb-8 max-w-full">
               I'm a data scientist specializing in product analytics, and AI
               driven intelligent tools that solve real-world problems.
             </p>
@@ -84,11 +83,11 @@ const HeroSection = () => {
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="flex gap-4 mb-20">
-              <button className="bg-cyan-600 hover:bg-cyan-950 cursor-pointer text-white text-lg   py-3 px-8 rounded-xl transition duration-300">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-4 mb-12 md:mb-20">
+              <button className="bg-cyan-600 hover:bg-cyan-950 cursor-pointer text-white text-base md:text-lg py-2.5 md:py-3 px-6 md:px-8 rounded-xl transition duration-300">
                 View My Work
               </button>
-              <button className="cursor-pointer text-white border border-white hover:bg-white/5 font-medium py-3 px-8 rounded-xl transition duration-300">
+              <button className="cursor-pointer text-white border border-white hover:bg-white/5 font-medium text-base md:text-lg py-2.5 md:py-3 px-6 md:px-8 rounded-xl transition duration-300">
                 Get in Touch
               </button>
             </div>
@@ -110,8 +109,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-
-      
     </section>
   );
 };

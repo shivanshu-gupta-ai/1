@@ -212,39 +212,39 @@ const ContactSection = () => {
           </p>
         </div>
 
-      <div className="max-w-md mx-auto p-6 rounded-xl bg-white/10 backdrop-blur-md bg-opacity-10 border border-white/50 text-white shadow-lg">
-        <h2 className="text-2xl font-bold mb-4">Connect With Me</h2>
-        <p className="text-gray-300 mb-6">
-          Feel free to connect with me on these platforms:
-        </p>
+        <div className="max-w-md mx-auto p-6 rounded-xl bg-white/10 backdrop-blur-md bg-opacity-10 border border-white/50 text-white shadow-lg">
+          <h2 className="text-2xl font-bold mb-4">Connect With Me</h2>
+          <p className="text-gray-300 mb-6">
+            Feel free to connect with me on these platforms:
+          </p>
 
-        <div className="space-y-3">
-          {socials.map((social) => (
-            <a
-              key={social.name}
-              href={social.href}
-              className="flex items-center gap-3 p-3 rounded-md transition-all duration-200 hover:bg-white/10"
-              onMouseEnter={() => setHovered(social.name)}
-              onMouseLeave={() => setHovered(null)}
-            >
-              <span
-                className={`transition-all duration-200 ${
-                  hovered === social.name ? "text-white" : "text-gray-400"
-                }`}
+          <div className="space-y-3">
+            {socials.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                className="flex items-center gap-3 p-3 rounded-md transition-all duration-200 hover:bg-white/10"
+                onMouseEnter={() => setHovered(social.name)}
+                onMouseLeave={() => setHovered(null)}
               >
-                {social.icon}
-              </span>
-              <span
-                className={`font-medium transition-all duration-200 ${
-                  hovered === social.name ? "text-white" : "text-gray-300"
-                }`}
-              >
-                {social.name}
-              </span>
-            </a>
-          ))}
+                <span
+                  className={`transition-all duration-200 ${
+                    hovered === social.name ? "text-white" : "text-gray-400"
+                  }`}
+                >
+                  {social.icon}
+                </span>
+                <span
+                  className={`font-medium transition-all duration-200 ${
+                    hovered === social.name ? "text-white" : "text-gray-300"
+                  }`}
+                >
+                  {social.name}
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
       </div>
 
       {/* 3D Globe - Right side */}

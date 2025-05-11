@@ -1,146 +1,231 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from "react";
 
 const About = () => {
   // Animation visibility state
   const [isVisible, setIsVisible] = useState(false);
-  
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    const element = document.getElementById("about");
-    if (element) {
-      observer.observe(element);
+    // Create observer only once
+    if (!observerRef.current) {
+      observerRef.current = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        },
+        { threshold: 0.1 }
+      );
     }
-    
+
+    const element = document.getElementById("about");
+    if (element && observerRef.current) {
+      observerRef.current.observe(element);
+    }
+
     return () => {
-      if (element) {
-        observer.unobserve(element);
+      if (element && observerRef.current) {
+        observerRef.current.unobserve(element);
+        observerRef.current.disconnect();
+        observerRef.current = null;
       }
     };
   }, []);
 
+  // Memoize the background elements to prevent unnecessary re-renders
+  const backgroundElements = useMemo(
+    () => (
+      <div className="absolute inset-0 overflow-visible -z-10">
+        <div
+          className="absolute w-96 h-96 rounded-full bg-blue-500/10 filter blur-3xl right-0 bottom-0 
+                    animate-pulse duration-[15000ms]"
+        />
+        <div
+          className="absolute w-80 h-80 rounded-full bg-cyan-400/10 filter blur-3xl 
+                   left-0 top-0 animate-pulse duration-[20000ms]"
+          style={{ animationDelay: "2s" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 to-transparent"></div>
+      </div>
+    ),
+    []
+  );
+
+  // Memoize the value cards to prevent unnecessary re-renders
+  const valueCards = useMemo(
+    () => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Impact-Oriented Card */}
+        <div className="bg-gray-900/80 rounded-xl p-6 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
+          <div className="bg-cyan-400/30 p-4 rounded-full mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-cyan-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold text-white mb-2">Impact-Oriented</h3>
+          <p className="text-gray-300 text-sm">
+            Consistently driving measurable business outcomes through scalable
+            AI solutions, automation, and deep data insights.
+          </p>
+        </div>
+
+        {/* Collaborative Card */}
+        <div className="bg-gray-900/80 rounded-xl p-6 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
+          <div className="bg-cyan-400/30 p-4 rounded-full mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-cyan-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold text-white mb-2">Collaborative</h3>
+          <p className="text-gray-300 text-sm">
+            Bridging the gap between data science, engineering, and stakeholders
+            by fostering trust, transparency, and shared goals.
+          </p>
+        </div>
+
+        {/* Data-Driven Card */}
+        <div className="bg-gray-900/80 rounded-xl p-6 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
+          <div className="bg-cyan-400/30 p-4 rounded-full mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-cyan-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+              />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold text-white mb-2">Data-Driven</h3>
+          <p className="text-gray-300 text-sm">
+            Embedding data thinking into every step—from exploration to
+            deployment—to power intelligent, real-time decisions.
+          </p>
+        </div>
+
+        {/* Innovative Card */}
+        <div className="bg-gray-900/80 rounded-xl p-6 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
+          <div className="bg-cyan-400/30 p-4 rounded-full mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-cyan-300"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+              />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold text-white mb-2">Innovative</h3>
+          <p className="text-gray-300 text-sm">
+            Proactively identifying opportunities for AI and automation, and
+            taking ownership from prototype to production.
+          </p>
+        </div>
+      </div>
+    ),
+    []
+  );
+
   return (
-    <section 
-      id="about" 
+    <section
+      id="about"
       className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 mx-auto  relative overflow-hidden py-20"
     >
       {/* Subtle background gradient */}
       <div className="absolute min-h-screen inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
 
-      {/* Animated background elements with animations - similar to hero but different positions */}
-      <div className="absolute inset-0 overflow-visible -z-10">
-        {/* Main large glow in bottom right - with floating animation */}
-        <div className="absolute w-96 h-96 rounded-full bg-blue-500/10 filter blur-3xl right-0 bottom-0 
-                      animate-pulse duration-[15000ms]" />
-
-        {/* Smaller glow in top left - with reverse floating animation */}
-        <div
-          className="absolute w-80 h-80 rounded-full bg-cyan-400/10 filter blur-3xl 
-                     left-0 top-0 animate-pulse duration-[20000ms]"
-          style={{ animationDelay: '2s' }}
-        />
-
-        {/* Very subtle overall tint */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 to-transparent"></div>
-      </div>
+      {/* Animated background elements */}
+      {backgroundElements}
 
       <div className="w-full max-w-5xl">
         {/* Section header with fade-in animation */}
-        <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div
+          className={`transition-all duration-1000 delay-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           <h2 className="text-4xl font-bold text-center mb-16">
             <span className=" text-white">
               About <span className="text-cyan-500">Me</span>
             </span>
           </h2>
         </div>
-        
+
         {/* Main intro text - centered */}
-        <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div
+          className={`transition-all duration-1000 delay-500 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           <p className="text-xl text-white mb-16 leading-relaxed text-center max-w-3xl mx-auto">
-            I'm a data-driven Product Manager with a passion for building impactful and intelligent products. 
-            With a background in analytics and AI, I thrive at the intersection of technology, 
-            user experience, and business strategy.
+            I'm a data-driven Product Manager with a passion for building
+            impactful and intelligent products. With a background in analytics
+            and AI, I thrive at the intersection of technology, user experience,
+            and business strategy.
           </p>
         </div>
-        
+
         {/* Quote box */}
-        <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'opacity-70 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div
+          className={`transition-all duration-1000 delay-700 ${
+            isVisible ? "opacity-70 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           <div className="bg-white/10 border border-white/70 rounded-xl p-8 mb-16 max-w-3xl mx-auto">
             <blockquote className="text-xl text-gray-100 italic mb-4">
-              "The best Product Managers perform when no one's watching and lead 
-              with passion, clarity, and intent. Downstream success is inevitable 
-              when upstream decisions are made thoughtfully."
+              "The best Product Managers perform when no one's watching and lead
+              with passion, clarity, and intent. Downstream success is
+              inevitable when upstream decisions are made thoughtfully."
             </blockquote>
             <p className="text-right text-gray-200">— My Product Philosophy</p>
           </div>
         </div>
       </div>
+
       {/* Value cards grid - with staggered fade-in animation */}
-      <div className={`transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Impact-Oriented Card */}
-          <div className="bg-gray-900/80 rounded-xl p-6 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
-        <div className="bg-cyan-400/30 p-4 rounded-full mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-        </div>
-        <h3 className="text-xl font-bold text-white mb-2">Impact-Oriented</h3>
-        <p className="text-gray-300 text-sm">
-          Consistently driving measurable business outcomes through scalable AI solutions, automation, and deep data insights.
-        </p>
-          </div>
-
-          {/* Collaborative Card */}
-          <div className="bg-gray-900/80 rounded-xl p-6 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
-        <div className="bg-cyan-400/30 p-4 rounded-full mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
-        </div>
-        <h3 className="text-xl font-bold text-white mb-2">Collaborative</h3>
-        <p className="text-gray-300 text-sm">
-          Bridging the gap between data science, engineering, and stakeholders by fostering trust, transparency, and shared goals.
-        </p>
-          </div>
-
-          {/* Data-Driven Card */}
-          <div className="bg-gray-900/80 rounded-xl p-6 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
-        <div className="bg-cyan-400/30 p-4 rounded-full mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-          </svg>
-        </div>
-        <h3 className="text-xl font-bold text-white mb-2">Data-Driven</h3>
-        <p className="text-gray-300 text-sm">
-          Embedding data thinking into every step—from exploration to deployment—to power intelligent, real-time decisions.
-        </p>
-          </div>
-
-          {/* Innovative Card */}
-          <div className="bg-gray-900/80 rounded-xl p-6 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
-        <div className="bg-cyan-400/30 p-4 rounded-full mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-          </svg>
-        </div>
-        <h3 className="text-xl font-bold text-white mb-2">Innovative</h3>
-        <p className="text-gray-300 text-sm">
-          Proactively identifying opportunities for AI and automation, and taking ownership from prototype to production.
-        </p>
-          </div>
-        </div>
+      <div
+        className={`transition-all duration-1000 delay-900 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
+        {valueCards}
       </div>
     </section>
   );
 };
 
-export default About;
+export default React.memo(About);
