@@ -45,7 +45,11 @@ const HeroSection = () => {
           >
             <h1 className="text-3xl md:text-4xl lg:text-4xl mt-4 md:mt-16 leading-normal flex flex-col">
               <p className="rounded-full bg-neutral-800 px-3 py-1 mb-4 md:mb-6 text-xs md:text-sm text-white inline-block self-start">
-                AI Product Manager • Keynote Speaker • Data Storyteller
+                <span className="inline-block">AI Product Manager</span>
+                <span className="inline-block mx-8">•</span>
+                <span className="inline-block">Keynote Speaker</span>
+                <span className="inline-block mx-8">•</span>
+                <span className="inline-block">Data Storyteller</span>
               </p>
               <span className="text-4xl md:text-5xl font-poppins font-semibold text-white flex flex-col gap-1">
                 <p>
