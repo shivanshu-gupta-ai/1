@@ -192,10 +192,12 @@ const About = () => {
           }`}
         >
           <p className="text-xl text-white mb-16 leading-relaxed text-center max-w-3xl mx-auto">
-            I&apos;m a data-driven Product Manager with a passion for building
-            impactful and intelligent products. With a background in analytics
-            and AI, I thrive at the intersection of technology, user experience,
-            and business strategy.
+            I develop AI-powered systems that seamlessly integrate cutting-edge
+            technical innovation with meaningful real-world business outcomes.
+            With deep expertise in analytics, intelligent automation, and
+            strategic product thinking, I specialize in transforming complex
+            data into actionable insights and scalable strategies that drive
+            measurable impact.
           </p>
         </div>
 
@@ -207,12 +209,9 @@ const About = () => {
         >
           <div className="bg-white/10 border border-white/70 rounded-xl p-8 mb-16 max-w-3xl mx-auto">
             <blockquote className="text-xl text-gray-100 italic mb-4">
-              &quot;The best Product Managers perform when no one&apos;s
-              watching and lead with passion, clarity, and intent. Downstream
-              success is inevitable when upstream decisions are made
-              thoughtfully.&quot;
+              &quot;The best Data Scientists go beyond models—they translate complexity into clarity, and insights into impact. Real value comes when curiosity meets business context.&quot;
             </blockquote>
-            <p className="text-right text-gray-200">— My Product Philosophy</p>
+            <p className="text-right text-gray-200">— My Engineering Philosophy</p>
           </div>
         </div>
       </div>

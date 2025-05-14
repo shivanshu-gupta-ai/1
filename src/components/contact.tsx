@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as THREE from "three";
 import dynamic from "next/dynamic";
-import { Linkedin, FileText, Youtube, Users } from "lucide-react";
+import { Linkedin, FileText, Youtube, Instagram } from "lucide-react";
 
 // Dynamically import the globe component with no SSR
 const Globe = dynamic(() => import("./Globe"), { ssr: false });
@@ -15,10 +15,10 @@ const ContactSection = () => {
   const [hovered, setHovered] = useState<string | null>(null);
 
   const socials = [
-    { name: "LinkedIn", icon: <Linkedin size={20} />, href: "#" },
-    { name: "Medium", icon: <FileText size={20} />, href: "#" },
-    { name: "YouTube", icon: <Youtube size={20} />, href: "#" },
-    { name: "Topmate", icon: <Users size={20} />, href: "#" },
+    { name: "LinkedIn", icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/shivanshu-gupta-09a4ab75/" },
+    { name: "Medium", icon: <FileText size={20} />, href: "https://medium.com/@shivanshug55" },
+    { name: "YouTube", icon: <Youtube size={20} />, href: "https://www.youtube.com/channel/UCakiZI89M23X5GeBzgfgAlg" },
+    { name: "Instagram", icon: <Instagram size={20} />, href: "https://www.instagram.com/ai_brooo/" },
   ];
 
   useEffect(() => {
@@ -226,6 +226,7 @@ const ContactSection = () => {
                 className="flex items-center gap-3 p-3 rounded-md transition-all duration-200 hover:bg-white/10"
                 onMouseEnter={() => setHovered(social.name)}
                 onMouseLeave={() => setHovered(null)}
+                target="_blank"
               >
                 <span
                   className={`transition-all duration-200 ${

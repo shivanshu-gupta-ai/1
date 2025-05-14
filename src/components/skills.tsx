@@ -180,39 +180,40 @@ const Skills = () => {
   // Skills data structured by category
   const skillCategories: SkillCategory[] = [
     {
-      id: "product",
-      title: "Product Strategy",
-      icon: "strategy",
+      id: "technical",
+      title: "Technical Skills",
+      icon: "code", 
       skills: [
-        { name: "Go-to-Market Strategy", proficiency: 95 },
-        { name: "Product Roadmapping", proficiency: 90 },
-        { name: "User Research", proficiency: 85 },
-        { name: "Competitive Analysis", proficiency: 90 },
-        { name: "Product Analytics", proficiency: 95 },
+        { name: "Cloud Computing (AWS, Azure)", proficiency: 90 },
+        { name: "AI/ML Development (Sagemaker)", proficiency: 85 },
+        { name: "Python Programming", proficiency: 90 },
+        { name: "SQL & Data Warehousing", proficiency: 90 },
+        { name: "ETL & Pipeline Automation", proficiency: 95 },
+       
       ],
     },
     {
-      id: "technical",
-      title: "Technical Skills",
-      icon: "code",
+      id: "analytical",
+      title: "Analytical Skills",
+      icon: "strategy", 
       skills: [
-        { name: "Artificial Intelligence", proficiency: 85 },
-        { name: "AI/ML Product Development", proficiency: 80 },
-        { name: "SQL", proficiency: 90 },
-        { name: "Python", proficiency: 90 },
-        { name: "Data Visualization", proficiency: 95 },
+        { name: "Product & Business Analytics", proficiency: 90 },
+        { name: "Data Visualization (Power BI)", proficiency: 95 },
+        { name: "MLOps", proficiency: 85 },
+        { name: "A/B Testing", proficiency: 85 },
+        { name: "Recommendation Systems", proficiency: 90 },
       ],
     },
     {
       id: "leadership",
-      title: "Leadership",
-      icon: "team",
+      title: "Collaboration & Leadership",
+      icon: "team", 
       skills: [
-        { name: "Cross-functional Collaboration", proficiency: 95 },
-        { name: "Stakeholder Management", proficiency: 90 },
-        { name: "Team Leadership", proficiency: 85 },
-        { name: "Product Vision", proficiency: 95 },
-        { name: "Communication", proficiency: 90 },
+        { name: "Cross-functional Communication", proficiency: 90 },
+        { name: "Stakeholder Alignment", proficiency: 85 },
+        { name: "Mentorship & Knowledge Sharing", proficiency: 80 },
+        { name: "Problem Solving & Root Cause Analysis", proficiency: 90 },
+        { name: "Data Storytelling", proficiency: 95 },
       ],
     },
   ];
@@ -416,39 +417,35 @@ const Skills = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          {[
-            "Product-Market Fit",
-            "A/B Testing",
-            "UX Design",
-            "Data-Driven",
-            "Agile",
-            "Machine Learning",
-            "NLP",
-            "Performance Optimization",
-            "Strategic Thinking",
-            "Growth Mindset",
-          ].map((badge, index) => (
+            {[
+            "Customer Support Intelligence",
+            "Rec Engine",
+            "AI Automations",
+            "Cloud Solutions",
+            "Data Engineering",
+            "Product Analytics",
+            ].map((badge, index) => (
             <span
               key={index}
               className={`
-    px-4 py-2
-    text-sm text-gray-300
-    rounded-full border border-gray-700
-    bg-white/20
-    bg-[length:200%_200%] bg-position-100
-    transition-all duration-150 ease-out
-    transform-origin-center
-    will-change-transform
-    relative
-    hover:border-2 hover:border-cyan-400
-    hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/20
-    hover:bg-position-0
-    hover:z-10
-  `}
+        px-4 py-2
+        text-sm text-gray-300
+        rounded-full border border-gray-700
+        bg-white/20
+        bg-[length:200%_200%] bg-position-100
+        transition-all duration-150 ease-out
+        transform-origin-center
+        will-change-transform
+        relative
+        hover:border-2 hover:border-cyan-400
+        hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/20
+        hover:bg-position-0
+        hover:z-10
+        `}
             >
               {badge}
             </span>
-          ))}
+            ))}
         </div>
       </div>
 

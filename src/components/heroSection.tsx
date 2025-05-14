@@ -107,7 +107,7 @@ const HeroSection = () => {
         >
           <div className="relative w-full max-w-md">
             <Image
-              src="/portfolio.jpeg"
+              src="/shivanshu_portfolio.png"
               alt="Profile"
               width={500}
               height={300}

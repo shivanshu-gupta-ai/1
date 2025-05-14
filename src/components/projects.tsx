@@ -115,35 +115,42 @@ const Projects = () => {
               </div>
 
               <h3 className="text-xl font-bold text-white mb-3">
-                Intelligent Hotel Recommendation Engine
+                AI-Powered Jira Assistant
               </h3>
               <p className="text-gray-300 mb-6 text-sm">
-                Redesigned recommendation algorithm to prioritize most relevant
-                hotels, improving user experience and conversion rates.
+                End-to-end intelligent system integrated with Jira to both
+                recommend relevant historical tickets and auto-generate
+                summaries for new ones. 
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-black/30 p-4 rounded-lg">
-                  <p className="text-gray-400 text-xs mb-1">Rank Improvement</p>
-                  <p className="text-purple-400 font-bold">31 → 8</p>
+                  <p className="text-gray-400 text-xs mb-1">
+                    Resolution Time Reduction
+                  </p>
+                  <p className="text-purple-400 font-bold">35%</p>
                 </div>
                 <div className="bg-black/30 p-4 rounded-lg">
                   <p className="text-gray-400 text-xs mb-1">
-                    Search Time Reduction
+                    Avg. Time Saved per Ticket
                   </p>
-                  <p className="text-purple-400 font-bold">50%</p>
+                  <p className="text-purple-400 font-bold">2 mins</p>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-2">
                 <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Data Science
+                  AI
                 </span>
                 <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  UX Research
+                  Rest API
                 </span>
                 <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  A/B Testing
+                  Jira Automation
+                </span>
+
+                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
+                  Ticket Intelligence
                 </span>
               </div>
             </div>
@@ -179,35 +186,41 @@ const Projects = () => {
               </div>
 
               <h3 className="text-xl font-bold text-white mb-3">
-                Copilot – Industry-first AI Tool
+                AI Voicebot and Chatbot
               </h3>
               <p className="text-gray-300 mb-6 text-sm">
-                Built an AI assistant integrated with internal tools, providing
-                faster access to insights and supporting data-driven decisions.
+                Designed and deployed conversational AI agents to automate
+                customer interactions across voice and text.
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-black/30 p-4 rounded-lg">
                   <p className="text-gray-400 text-xs mb-1">
-                    Projected Yearly Savings
+                    Avg Handling time Reduction
                   </p>
-                  <p className="text-purple-400 font-bold">€3.5B</p>
+                  <p className="text-purple-400 font-bold">70%</p>
                 </div>
                 <div className="bg-black/30 p-4 rounded-lg">
-                  <p className="text-gray-400 text-xs mb-1">Adoption Rate</p>
-                  <p className="text-purple-400 font-bold">85%</p>
+                  <p className="text-gray-400 text-xs mb-1">
+                    Annual Cost Saved
+                  </p>
+                  <p className="text-purple-400 font-bold">$250k</p>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-2">
                 <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  AI
+                  Claude AI
                 </span>
                 <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Internal Tools
+                  NLU
                 </span>
                 <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Product Strategy
+                  AWS
+                </span>
+
+                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
+                  Cognigy
                 </span>
               </div>
             </div>
@@ -243,35 +256,41 @@ const Projects = () => {
               </div>
 
               <h3 className="text-xl font-bold text-white mb-3">
-                Payment Aggregator License
+                AI-Powered Auto-Reply Emails
               </h3>
               <p className="text-gray-300 mb-6 text-sm">
-                Led the RBI-approved payment aggregator (PA) license to a
-                revenue-generating business for Udaan.
+                Deployed AI solution to auto-generate email responses based on
+                email intent based on different use cases.
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-black/30 p-4 rounded-lg">
-                  <p className="text-gray-400 text-xs mb-1">Savings per year</p>
-                  <p className="text-purple-400 font-bold">2.4Mn</p>
+                  <p className="text-gray-400 text-xs mb-1">
+                    Volume Processed Yearly
+                  </p>
+                  <p className="text-purple-400 font-bold">500k </p>
                 </div>
                 <div className="bg-black/30 p-4 rounded-lg">
                   <p className="text-gray-400 text-xs mb-1">
-                    Transactions processed per year
+                    Annual Cost Saved
                   </p>
-                  <p className="text-purple-400 font-bold">6Mn+</p>
+                  <p className="text-purple-400 font-bold">$1.2M</p>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-2">
                 <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Fintech
+                  Claude AI
                 </span>
                 <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Payment Systems
+                  Lambda
                 </span>
                 <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Compliance
+                  Email Intelligence
+                </span>
+
+                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
+                  AWS
                 </span>
               </div>
             </div>
@@ -307,36 +326,39 @@ const Projects = () => {
               </div>
 
               <h3 className="text-xl font-bold text-white mb-3">
-                Business Loan
+                Customer Intelligence Dashboard
               </h3>
               <p className="text-gray-300 mb-6 text-sm">
-                Responsible for GTM, Product Marketing Strategy, Product
-                Analytics and feature improvements for new fintech product: term
-                loan.
+                Built end-to-end data pipeline and dashboard to track insights
+                from conversational AI and ticketing tools.
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-black/30 p-4 rounded-lg">
                   <p className="text-gray-400 text-xs mb-1">
-                    AUM jump within 3 months
+                    Pipeline Refresh
                   </p>
-                  <p className="text-purple-400 font-bold">200Mn</p>
+                  <p className="text-purple-400 font-bold">Everyday</p>
                 </div>
                 <div className="bg-black/30 p-4 rounded-lg">
-                  <p className="text-gray-400 text-xs mb-1">Client Adoption</p>
-                  <p className="text-purple-400 font-bold">20%</p>
+                  <p className="text-gray-400 text-xs mb-1">Annual Volume Processed</p>
+                  <p className="text-purple-400 font-bold">500k</p>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-2">
                 <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Fintech
+                  AWS Glue
                 </span>
                 <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Product Marketing
+                  ETL
                 </span>
                 <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Analytics
+                  Powerbi
+                </span>
+
+                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
+                  Sagemaker
                 </span>
               </div>
             </div>

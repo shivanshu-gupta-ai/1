@@ -47,48 +47,37 @@ const ExperienceSection = () => {
   // Experience data
   const experiences = [
     {
-      company: "DataSense Analytics",
+      company: "HRS Group",
       link: "https://datasense.com",
-      role: "Senior AI Consultant",
+      role: "Data Scientist",
       type: "Full-time",
-      duration: "Jan 2023 — Present",
+      duration: "HRS Group - Oct 2023 - present",
       description:
-        "Leading AI strategy for enterprise clients, developing predictive analytics systems that increased client revenue by 32% on average. Architected an AI-driven customer behavior analysis platform using Python, TensorFlow, and AWS.",
+        "Developed AI-powered systems for intelligent ticket recommendations and automated email responses, complemented by data engineering pipelines for customer insights derived from conversational AI interactions",
       icon: <Code className="text-purple-500" size={28} />,
       color: "purple",
     },
     {
-      company: "TechInnovate Solutions",
+      company: "Pacifist Digi Creative Solutions Pvt Ltd.",
       link: "https://techinnovate.io",
-      role: "Data Science Lead",
+      role: "Business Analyst",
       type: "Full-time",
-      duration: "Mar 2021 — Dec 2022",
+      duration: "May 2020 - July 2022",
       description:
-        "Directed a team of 5 data scientists in developing ML models for product recommendation engines. Created automated data pipelines that improved processing efficiency by 65% and reduced operational costs by 28%.",
+        "Developed a sales performance dashboard for an Upwork client, providing actionable sales insights. Collaborated with cross-functional teams to streamline data collection, resulting in a 25% reduction in report development time.",
       icon: <Briefcase className="text-cyan-500" size={28} />,
       color: "cyan",
     },
     {
-      company: "Quantum Research Labs",
+      company: "Piramal Education",
       link: "https://quantumresearch.org",
-      role: "ML Research Associate",
+      role: "Research Fellow",
       type: "Part-time",
-      duration: "Jun 2020 — Feb 2021",
+      duration: "July 2018 - May 2020",
       description:
-        "Conducted research on novel deep learning architectures for natural language processing applications. Published two papers on transformer architecture optimizations in leading industry journals.",
+        "Consulted with the Government of Gujarat to drive a 20% improvement in student learning outcomes by leveraging skill-wise data analysis across 5 rural schools and delivering targeted capacity-building programs for teachers and school leaders.",
       icon: <BookOpen className="text-blue-500" size={28} />,
       color: "blue",
-    },
-    {
-      company: "IntelliProcess",
-      link: "https://intelliprocess.ai",
-      role: "Data Analyst Intern",
-      type: "Internship",
-      duration: "Jan 2020 — May 2020",
-      description:
-        "Analyzed customer interaction data to identify key engagement patterns. Built interactive dashboards using Python and Tableau that visualized customer journey touchpoints, leading to a 15% improvement in conversion rates.",
-      icon: <Code className="text-teal-500" size={28} />,
-      color: "teal",
     },
   ];
 
@@ -252,19 +241,6 @@ const ExperienceSection = () => {
                           : "bg-teal-500/20 text-teal-300"
                       } px-3 py-1 rounded-full text-sm`}
                     >
-                      TensorFlow
-                    </span>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
                       AWS
                     </span>
                     <span
@@ -278,7 +254,46 @@ const ExperienceSection = () => {
                           : "bg-teal-500/20 text-teal-300"
                       } px-3 py-1 rounded-full text-sm`}
                     >
-                      Python
+                      Claude
+                    </span>
+                    <span
+                      className={`${
+                        exp.color === "purple"
+                          ? "bg-purple-500/20 text-purple-300"
+                          : exp.color === "cyan"
+                          ? "bg-cyan-500/20 text-cyan-300"
+                          : exp.color === "blue"
+                          ? "bg-blue-500/20 text-blue-300"
+                          : "bg-teal-500/20 text-teal-300"
+                      } px-3 py-1 rounded-full text-sm`}
+                    >
+                      Rest API
+                    </span>
+                    <span
+                      className={`${
+                        exp.color === "purple"
+                          ? "bg-purple-500/20 text-purple-300"
+                          : exp.color === "cyan"
+                          ? "bg-cyan-500/20 text-cyan-300"
+                          : exp.color === "blue"
+                          ? "bg-blue-500/20 text-blue-300"
+                          : "bg-teal-500/20 text-teal-300"
+                      } px-3 py-1 rounded-full text-sm`}
+                    >
+                      Sagemake
+                    </span>
+                    <span
+                      className={`${
+                        exp.color === "purple"
+                          ? "bg-purple-500/20 text-purple-300"
+                          : exp.color === "cyan"
+                          ? "bg-cyan-500/20 text-cyan-300"
+                          : exp.color === "blue"
+                          ? "bg-blue-500/20 text-blue-300"
+                          : "bg-teal-500/20 text-teal-300"
+                      } px-3 py-1 rounded-full text-sm`}
+                    >
+                      Power bi
                     </span>
                   </>
                 )}
@@ -295,7 +310,7 @@ const ExperienceSection = () => {
                           : "bg-teal-500/20 text-teal-300"
                       } px-3 py-1 rounded-full text-sm`}
                     >
-                      ML Models
+                      MS Excel
                     </span>
                     <span
                       className={`${
@@ -308,7 +323,7 @@ const ExperienceSection = () => {
                           : "bg-teal-500/20 text-teal-300"
                       } px-3 py-1 rounded-full text-sm`}
                     >
-                      Data Pipelines
+                      Power BI
                     </span>
                     <span
                       className={`${
@@ -321,7 +336,34 @@ const ExperienceSection = () => {
                           : "bg-teal-500/20 text-teal-300"
                       } px-3 py-1 rounded-full text-sm`}
                     >
-                      Team Leadership
+                      Data Cleaning
+                    </span>
+
+                    <span
+                      className={`${
+                        exp.color === "purple"
+                          ? "bg-purple-500/20 text-purple-300"
+                          : exp.color === "cyan"
+                          ? "bg-cyan-500/20 text-cyan-300"
+                          : exp.color === "blue"
+                          ? "bg-blue-500/20 text-blue-300"
+                          : "bg-teal-500/20 text-teal-300"
+                      } px-3 py-1 rounded-full text-sm`}
+                    >
+                      Data Processing
+                    </span>
+                    <span
+                      className={`${
+                        exp.color === "purple"
+                          ? "bg-purple-500/20 text-purple-300"
+                          : exp.color === "cyan"
+                          ? "bg-cyan-500/20 text-cyan-300"
+                          : exp.color === "blue"
+                          ? "bg-blue-500/20 text-blue-300"
+                          : "bg-teal-500/20 text-teal-300"
+                      } px-3 py-1 rounded-full text-sm`}
+                    >
+                      MS Powerpoint
                     </span>
                   </>
                 )}
@@ -338,7 +380,7 @@ const ExperienceSection = () => {
                           : "bg-teal-500/20 text-teal-300"
                       } px-3 py-1 rounded-full text-sm`}
                     >
-                      NLP
+                      MS Excel
                     </span>
                     <span
                       className={`${
@@ -351,7 +393,7 @@ const ExperienceSection = () => {
                           : "bg-teal-500/20 text-teal-300"
                       } px-3 py-1 rounded-full text-sm`}
                     >
-                      Research
+                      Communication
                     </span>
                     <span
                       className={`${
@@ -364,24 +406,7 @@ const ExperienceSection = () => {
                           : "bg-teal-500/20 text-teal-300"
                       } px-3 py-1 rounded-full text-sm`}
                     >
-                      Publications
-                    </span>
-                  </>
-                )}
-                {index === 3 && (
-                  <>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      Data Analysis
+                      Data Processing
                     </span>
                     <span
                       className={`${
@@ -394,8 +419,9 @@ const ExperienceSection = () => {
                           : "bg-teal-500/20 text-teal-300"
                       } px-3 py-1 rounded-full text-sm`}
                     >
-                      Tableau
+                      MS Powerpoint
                     </span>
+
                     <span
                       className={`${
                         exp.color === "purple"
@@ -407,7 +433,7 @@ const ExperienceSection = () => {
                           : "bg-teal-500/20 text-teal-300"
                       } px-3 py-1 rounded-full text-sm`}
                     >
-                      Python
+                      Stakeholder Management
                     </span>
                   </>
                 )}
