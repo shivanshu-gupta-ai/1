@@ -69,25 +69,23 @@ const Skills = () => {
     []
   );
 
- 
   const skillCategories: SkillCategory[] = [
     {
       id: "technical",
       title: "Technical Skills",
-      icon: "code", 
+      icon: "code",
       skills: [
         { name: "Cloud Computing (AWS, Azure)", proficiency: 90 },
         { name: "AI/ML Development (Sagemaker)", proficiency: 85 },
         { name: "Python Programming", proficiency: 90 },
         { name: "SQL & Data Warehousing", proficiency: 90 },
         { name: "ETL & Pipeline Automation", proficiency: 95 },
-       
       ],
     },
     {
       id: "analytical",
       title: "Analytical Skills",
-      icon: "strategy", 
+      icon: "strategy",
       skills: [
         { name: "Product & Business Analytics", proficiency: 90 },
         { name: "Data Visualization (Power BI)", proficiency: 95 },
@@ -99,7 +97,7 @@ const Skills = () => {
     {
       id: "leadership",
       title: "Collaboration & Leadership",
-      icon: "team", 
+      icon: "team",
       skills: [
         { name: "Cross-functional Communication", proficiency: 90 },
         { name: "Stakeholder Alignment", proficiency: 85 },
@@ -303,13 +301,17 @@ const Skills = () => {
           ))}
         </div>
 
-       <div className="flex items-center justify-center">
- 
-        <BadgeContainer />
-       </div>
+        <div className="flex-1 items-center justify-center">
+          <h2 className="text-2xl font-bold text-center mb-8">
+            <span className=" text-white">
+              Domain <span className="text-cyan-500">Expertise</span>
+            </span>
+          </h2>
+          <div className="flex items-center justify-center">
+            <BadgeContainer />
+          </div>
+        </div>
       </div>
-
-      
     </section>
   );
 };

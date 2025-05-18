@@ -51,7 +51,7 @@ const HeroSection = () => {
                 <span className="inline-block mx-4">•</span>
                 <span className="inline-block">Data Storyteller</span>
               </p>
-              <span className="text-4xl md:text-5xl font-poppins font-semibold text-white flex flex-col gap-1">
+              <span className="text-4xl md:text-5xl font font-semibold text-white flex flex-col gap-1">
                 <p>
                   Delivering{" "}
                   <span className="text-cyan-500">

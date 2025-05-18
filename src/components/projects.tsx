@@ -1,9 +1,138 @@
 "use client";
 import React, { useState, useEffect, useRef, useMemo } from "react";
+import ProjectCard from "./ui/project-card";
+
+interface Project {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  metrics: {
+    label1: string;
+    value1: string;
+    label2: string;
+    value2: string;
+  };
+  tags: string[];
+}
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
+
+  const projects: Project[] = [
+    {
+      title: "AI-Powered Jira Assistant",
+      description:
+        "End-to-end intelligent system integrated with Jira to both recommend relevant historical tickets and auto-generate summaries for new ones.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 text-cyan-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      ),
+      metrics: {
+        label1: "Resolution Time Reduction",
+        value1: "35%",
+        label2: "Avg. Time Saved per Ticket",
+        value2: "2 mins",
+      },
+      tags: ["AI", "Rest API", "Jira Automation", "Ticket Intelligence"],
+    },
+    {
+      title: "AI Voicebot and Chatbot",
+      description:
+        "Designed and deployed conversational AI agents to automate customer interactions across voice and text.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 text-cyan-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+          />
+        </svg>
+      ),
+      metrics: {
+        label1: "Avg Handling time Reduction",
+        value1: "70%",
+        label2: "Annual Cost Saved",
+        value2: "$250k",
+      },
+      tags: ["Claude AI", "NLU", "AWS", "Cognigy"],
+    },
+    {
+      title: "AI-Powered Auto-Reply Emails",
+      description:
+        "Deployed AI solution to auto-generate email responses based on email intent based on different use cases.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 text-cyan-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+          />
+        </svg>
+      ),
+      metrics: {
+        label1: "Volume Processed Yearly",
+        value1: "500k",
+        label2: "Annual Cost Saved",
+        value2: "$1.2M",
+      },
+      tags: ["Claude AI", "Lambda", "Email Intelligence", "AWS"],
+    },
+    {
+      title: "Customer Intelligence Dashboard",
+      description:
+        "Built end-to-end data pipeline and dashboard to track insights from conversational AI and ticketing tools.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 text-cyan-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+          />
+        </svg>
+      ),
+      metrics: {
+        label1: "Pipeline Refresh",
+        value1: "Everyday",
+        label2: "Annual Volume Processed",
+        value2: "500k",
+      },
+      tags: ["AWS Glue", "ETL", "Powerbi", "Sagemaker"],
+    },
+  ];
 
   useEffect(() => {
     // Create observer only once
@@ -86,283 +215,14 @@ const Projects = () => {
 
         {/* Projects grid with staggered animations */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Project 1 */}
-          <div
-            className={`transition-all duration-1000 hover:scale-[1.02] ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
-            <div className="bg-gray-900/80 rounded-xl p-6 border border-gray-800 hover:border-blue-500/50 overflow-hidden relative group">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-
-              <div className="bg-cyan-400/20 p-4 rounded-full mb-4 w-fit">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-cyan-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-
-              <h3 className="text-xl font-bold text-white mb-3">
-                AI-Powered Jira Assistant
-              </h3>
-              <p className="text-gray-300 mb-6 text-sm">
-                End-to-end intelligent system integrated with Jira to both
-                recommend relevant historical tickets and auto-generate
-                summaries for new ones. 
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-black/30 p-4 rounded-lg">
-                  <p className="text-gray-400 text-xs mb-1">
-                    Resolution Time Reduction
-                  </p>
-                  <p className="text-purple-400 font-bold">35%</p>
-                </div>
-                <div className="bg-black/30 p-4 rounded-lg">
-                  <p className="text-gray-400 text-xs mb-1">
-                    Avg. Time Saved per Ticket
-                  </p>
-                  <p className="text-purple-400 font-bold">2 mins</p>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-2 mt-2">
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  AI
-                </span>
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Rest API
-                </span>
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Jira Automation
-                </span>
-
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Ticket Intelligence
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 2 */}
-          <div
-            className={`transition-all duration-1000 hover:scale-[1.02] ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "200ms" }}
-          >
-            <div className="bg-gray-900/80 rounded-xl p-6 border border-gray-800 hover:border-blue-500/50 overflow-hidden relative group">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-
-              <div className="bg-cyan-400/20 p-4 rounded-full mb-4 w-fit">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-cyan-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                  />
-                </svg>
-              </div>
-
-              <h3 className="text-xl font-bold text-white mb-3">
-                AI Voicebot and Chatbot
-              </h3>
-              <p className="text-gray-300 mb-6 text-sm">
-                Designed and deployed conversational AI agents to automate
-                customer interactions across voice and text.
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-black/30 p-4 rounded-lg">
-                  <p className="text-gray-400 text-xs mb-1">
-                    Avg Handling time Reduction
-                  </p>
-                  <p className="text-purple-400 font-bold">70%</p>
-                </div>
-                <div className="bg-black/30 p-4 rounded-lg">
-                  <p className="text-gray-400 text-xs mb-1">
-                    Annual Cost Saved
-                  </p>
-                  <p className="text-purple-400 font-bold">$250k</p>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-2 mt-2">
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Claude AI
-                </span>
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  NLU
-                </span>
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  AWS
-                </span>
-
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Cognigy
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 3 */}
-          <div
-            className={`transition-all duration-1000 hover:scale-[1.02] ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "400ms" }}
-          >
-            <div className="bg-gray-900/80 rounded-xl p-6 border border-gray-800 hover:border-blue-500/50 overflow-hidden relative group">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-
-              <div className="bg-cyan-400/20 p-4 rounded-full mb-4 w-fit">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-cyan-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
-                  />
-                </svg>
-              </div>
-
-              <h3 className="text-xl font-bold text-white mb-3">
-                AI-Powered Auto-Reply Emails
-              </h3>
-              <p className="text-gray-300 mb-6 text-sm">
-                Deployed AI solution to auto-generate email responses based on
-                email intent based on different use cases.
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-black/30 p-4 rounded-lg">
-                  <p className="text-gray-400 text-xs mb-1">
-                    Volume Processed Yearly
-                  </p>
-                  <p className="text-purple-400 font-bold">500k </p>
-                </div>
-                <div className="bg-black/30 p-4 rounded-lg">
-                  <p className="text-gray-400 text-xs mb-1">
-                    Annual Cost Saved
-                  </p>
-                  <p className="text-purple-400 font-bold">$1.2M</p>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-2 mt-2">
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Claude AI
-                </span>
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Lambda
-                </span>
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Email Intelligence
-                </span>
-
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  AWS
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 4 */}
-          <div
-            className={`transition-all duration-1000 hover:scale-[1.02] ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "600ms" }}
-          >
-            <div className="bg-gray-900/80 rounded-xl p-6 border border-gray-800 hover:border-blue-500/50 overflow-hidden relative group">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-
-              <div className="bg-cyan-400/20 p-4 rounded-full mb-4 w-fit">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-cyan-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  />
-                </svg>
-              </div>
-
-              <h3 className="text-xl font-bold text-white mb-3">
-                Customer Intelligence Dashboard
-              </h3>
-              <p className="text-gray-300 mb-6 text-sm">
-                Built end-to-end data pipeline and dashboard to track insights
-                from conversational AI and ticketing tools.
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-black/30 p-4 rounded-lg">
-                  <p className="text-gray-400 text-xs mb-1">
-                    Pipeline Refresh
-                  </p>
-                  <p className="text-purple-400 font-bold">Everyday</p>
-                </div>
-                <div className="bg-black/30 p-4 rounded-lg">
-                  <p className="text-gray-400 text-xs mb-1">Annual Volume Processed</p>
-                  <p className="text-purple-400 font-bold">500k</p>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-2 mt-2">
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  AWS Glue
-                </span>
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  ETL
-                </span>
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Powerbi
-                </span>
-
-                <span className="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
-                  Sagemaker
-                </span>
-              </div>
-            </div>
-          </div>
+          {projects.map((project: Project, index: number) => (
+            <ProjectCard
+              key={index}
+              {...project}
+              isVisible={isVisible}
+              delay={`${index * 200}ms`}
+            />
+          ))}
         </div>
       </div>
     </section>

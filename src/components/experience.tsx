@@ -1,6 +1,21 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { BookOpen, Briefcase, Code } from "lucide-react";
+import Tag from "./ui/tag";
+
+type ExperienceColor = "purple" | "cyan" | "blue" | "teal";
+
+interface Experience {
+  company: string;
+  link: string;
+  role: string;
+  type: string;
+  duration: string;
+  description: string;
+  icon: React.ReactNode;
+  color: ExperienceColor;
+  tags: string[];
+}
 
 const ExperienceSection = () => {
   // Animation visibility state
@@ -45,7 +60,7 @@ const ExperienceSection = () => {
   }, []);
 
   // Experience data
-  const experiences = [
+  const experiences: Experience[] = [
     {
       company: "HRS Group",
       link: "https://datasense.com",
@@ -56,6 +71,7 @@ const ExperienceSection = () => {
         "Developed AI-powered systems for intelligent ticket recommendations and automated email responses, complemented by data engineering pipelines for customer insights derived from conversational AI interactions",
       icon: <Code className="text-purple-500" size={28} />,
       color: "purple",
+      tags: ["AWS", "Claude", "Rest API", "Sagemake", "Power bi"],
     },
     {
       company: "Pacifist Digi Creative Solutions Pvt Ltd.",
@@ -67,6 +83,13 @@ const ExperienceSection = () => {
         "Developed a sales performance dashboard for an Upwork client, providing actionable sales insights. Collaborated with cross-functional teams to streamline data collection, resulting in a 25% reduction in report development time.",
       icon: <Briefcase className="text-cyan-500" size={28} />,
       color: "cyan",
+      tags: [
+        "MS Excel",
+        "Power BI",
+        "Data Cleaning",
+        "Data Processing",
+        "MS Powerpoint",
+      ],
     },
     {
       company: "Piramal Education",
@@ -78,6 +101,13 @@ const ExperienceSection = () => {
         "Consulted with the Government of Gujarat to drive a 20% improvement in student learning outcomes by leveraging skill-wise data analysis across 5 rural schools and delivering targeted capacity-building programs for teachers and school leaders.",
       icon: <BookOpen className="text-blue-500" size={28} />,
       color: "blue",
+      tags: [
+        "MS Excel",
+        "Communication",
+        "Data Processing",
+        "MS Powerpoint",
+        "Stakeholder Management",
+      ],
     },
   ];
 
@@ -226,217 +256,11 @@ const ExperienceSection = () => {
 
               <p className="text-gray-300 leading-relaxed">{exp.description}</p>
 
-              {/* Skills tags - optional */}
+              {/* Skills tags */}
               <div className="mt-4 flex flex-wrap gap-2">
-                {index === 0 && (
-                  <>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      AWS
-                    </span>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      Claude
-                    </span>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      Rest API
-                    </span>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      Sagemake
-                    </span>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      Power bi
-                    </span>
-                  </>
-                )}
-                {index === 1 && (
-                  <>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      MS Excel
-                    </span>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      Power BI
-                    </span>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      Data Cleaning
-                    </span>
-
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      Data Processing
-                    </span>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      MS Powerpoint
-                    </span>
-                  </>
-                )}
-                {index === 2 && (
-                  <>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      MS Excel
-                    </span>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      Communication
-                    </span>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      Data Processing
-                    </span>
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      MS Powerpoint
-                    </span>
-
-                    <span
-                      className={`${
-                        exp.color === "purple"
-                          ? "bg-purple-500/20 text-purple-300"
-                          : exp.color === "cyan"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : exp.color === "blue"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-teal-500/20 text-teal-300"
-                      } px-3 py-1 rounded-full text-sm`}
-                    >
-                      Stakeholder Management
-                    </span>
-                  </>
-                )}
+                {exp.tags.map((tag, tagIndex) => (
+                  <Tag key={tagIndex} text={tag} color={exp.color} />
+                ))}
               </div>
             </div>
           </div>
