@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 export default function BadgeContainer() {
   const isVisible = true;
@@ -29,17 +28,6 @@ export default function BadgeContainer() {
   );
 }
 
-// This component uses a fixed-size container to prevent layout shifts
-// function BadgeWithFixedContainer({ text }: { text: string }) {
-//   return (
-//     <div className="flex items-center justify-center">
-//       {/* This container has fixed dimensions and doesn't change on hover */}
-//       <div className="w-full h-12 flex items-center justify-center">
-//         <BadgeContent text={text} />
-//       </div>
-//     </div>
-//   );
-// }
 
 function BadgeContent({
   text,
