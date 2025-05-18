@@ -45,10 +45,10 @@ const HeroSection = () => {
           >
             <h1 className="text-3xl md:text-4xl lg:text-4xl mt-4 md:mt-16 leading-normal flex flex-col">
               <p className="rounded-full bg-neutral-800 px-3 py-1 mb-4 md:mb-6 text-xs md:text-sm text-white inline-block self-start">
-                <span className="inline-block">AI Product Manager</span>
-                <span className="inline-block mx-8">•</span>
-                <span className="inline-block">Keynote Speaker</span>
-                <span className="inline-block mx-8">•</span>
+                <span className="inline-block">AI Engineer</span>
+                <span className="inline-block mx-4">•</span>
+                <span className="inline-block">Educator</span>
+                <span className="inline-block mx-4">•</span>
                 <span className="inline-block">Data Storyteller</span>
               </p>
               <span className="text-4xl md:text-5xl font-poppins font-semibold text-white flex flex-col gap-1">
@@ -89,12 +89,32 @@ const HeroSection = () => {
             }`}
           >
             <div className="flex flex-col md:flex-row gap-3 md:gap-4 mb-12 md:mb-20">
-              <button className="bg-cyan-600 hover:bg-cyan-950 cursor-pointer text-white text-base md:text-lg py-2.5 md:py-3 px-6 md:px-8 rounded-xl transition duration-300">
+                <button
+                className="bg-cyan-600 hover:bg-cyan-950 cursor-pointer text-white text-base md:text-lg py-2.5 md:py-3 px-6 md:px-8 rounded-xl transition duration-300"
+                onClick={() => {
+                  const el = document.getElementById("projects");
+                  if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                  window.location.href = "/#projects";
+                  }
+                }}
+                >
                 View My Work
-              </button>
-              <button className="cursor-pointer text-white border border-white hover:bg-white/5 font-medium text-base md:text-lg py-2.5 md:py-3 px-6 md:px-8 rounded-xl transition duration-300">
+                </button>
+                <button
+                className="cursor-pointer text-white border border-white hover:bg-white/5 font-medium text-base md:text-lg py-2.5 md:py-3 px-6 md:px-8 rounded-xl transition duration-300"
+                onClick={() => {
+                  const el = document.getElementById("contacts");
+                  if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                  window.location.href = "/#contact";
+                  }
+                }}
+                >
                 Get in Touch
-              </button>
+                </button>
             </div>
           </div>
         </div>

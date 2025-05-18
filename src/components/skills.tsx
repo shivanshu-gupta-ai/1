@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, useMemo } from "react";
+import BadgeContainer from "./ui/badge";
 
 // Define types for our data
 interface Skill {
@@ -68,116 +69,7 @@ const Skills = () => {
     []
   );
 
-  // Memoize the particles data
-  const particles = useMemo(
-    () => [
-      {
-        id: 1,
-        top: "10%",
-        left: "20%",
-        duration: "8s",
-        delay: "0s",
-        opacity: 0.3,
-      },
-      {
-        id: 2,
-        top: "30%",
-        left: "80%",
-        duration: "12s",
-        delay: "1s",
-        opacity: 0.4,
-      },
-      {
-        id: 3,
-        top: "50%",
-        left: "40%",
-        duration: "10s",
-        delay: "2s",
-        opacity: 0.3,
-      },
-      {
-        id: 4,
-        top: "70%",
-        left: "60%",
-        duration: "9s",
-        delay: "0.5s",
-        opacity: 0.4,
-      },
-      {
-        id: 5,
-        top: "20%",
-        left: "70%",
-        duration: "11s",
-        delay: "1.5s",
-        opacity: 0.3,
-      },
-      {
-        id: 6,
-        top: "80%",
-        left: "30%",
-        duration: "13s",
-        delay: "2.5s",
-        opacity: 0.4,
-      },
-      {
-        id: 7,
-        top: "40%",
-        left: "90%",
-        duration: "7s",
-        delay: "0.2s",
-        opacity: 0.3,
-      },
-      {
-        id: 8,
-        top: "60%",
-        left: "10%",
-        duration: "14s",
-        delay: "1.2s",
-        opacity: 0.4,
-      },
-      {
-        id: 9,
-        top: "90%",
-        left: "50%",
-        duration: "9s",
-        delay: "2.2s",
-        opacity: 0.3,
-      },
-      {
-        id: 10,
-        top: "25%",
-        left: "85%",
-        duration: "11s",
-        delay: "0.7s",
-        opacity: 0.4,
-      },
-    ],
-    []
-  );
-
-  // Memoize the particles component
-  const particlesComponent = useMemo(
-    () => (
-      <div className="absolute inset-0 pointer-events-none">
-        {particles.map((particle) => (
-          <div
-            key={particle.id}
-            className="absolute w-1 h-1 rounded-full bg-cyan-500/30"
-            style={{
-              top: particle.top,
-              left: particle.left,
-              opacity: particle.opacity,
-              animation: `floatParticle ${particle.duration} linear infinite`,
-              animationDelay: particle.delay,
-            }}
-          />
-        ))}
-      </div>
-    ),
-    [particles]
-  );
-
-  // Skills data structured by category
+ 
   const skillCategories: SkillCategory[] = [
     {
       id: "technical",
@@ -411,63 +303,13 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Floating badges section - extra enhancement */}
-        <div
-          className={`flex flex-wrap justify-center gap-4 mt-8 transition-all duration-1000 delay-2000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-            {[
-            "Customer Support Intelligence",
-            "Rec Engine",
-            "AI Automations",
-            "Cloud Solutions",
-            "Data Engineering",
-            "Product Analytics",
-            ].map((badge, index) => (
-            <span
-              key={index}
-              className={`
-        px-4 py-2
-        text-sm text-gray-300
-        rounded-full border border-gray-700
-        bg-white/20
-        bg-[length:200%_200%] bg-position-100
-        transition-all duration-150 ease-out
-        transform-origin-center
-        will-change-transform
-        relative
-        hover:border-2 hover:border-cyan-400
-        hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/20
-        hover:bg-position-0
-        hover:z-10
-        `}
-            >
-              {badge}
-            </span>
-            ))}
-        </div>
+       <div className="flex items-center justify-center">
+ 
+        <BadgeContainer />
+       </div>
       </div>
 
-      {/* Animated subtle particles */}
-      {particlesComponent}
-
-      {/* CSS keyframes for particle animation */}
-      <style jsx>{`
-        @keyframes floatParticle {
-          0% {
-            transform: translateY(0) translateX(0);
-            opacity: 0;
-          }
-          50% {
-            opacity: 0.8;
-          }
-          100% {
-            transform: translateY(-100px) translateX(20px);
-            opacity: 0;
-          }
-        }
-      `}</style>
+      
     </section>
   );
 };
