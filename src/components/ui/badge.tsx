@@ -48,7 +48,6 @@ function BadgeContent({
   text: string;
   gradientType: "cyan" | "purple";
 }) {
-  const [isHovered, setIsHovered] = useState(false);
 
   const gradientClass =
     gradientType === "cyan"
