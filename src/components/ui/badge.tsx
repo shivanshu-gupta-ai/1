@@ -1,4 +1,3 @@
-
 export default function BadgeContainer() {
   const isVisible = true;
 
@@ -9,11 +8,12 @@ export default function BadgeContainer() {
     "Cloud Solutions",
     "Data Engineering",
     "Product Analytics",
+    "Agentic AI"
   ];
 
   return (
     <div
-      className={`flex flex-wrap justify-items-center gap-4 font-bold transition-all duration-1000 delay-2000 ${
+      className={`flex flex-wrap justify-items-center gap-4 transition-all duration-1000 delay-2000 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
@@ -47,7 +47,7 @@ function BadgeContent({
       className={`
         inline-block
         px-4 py-2
-        text-md 
+        text-sm
         text-white
         rounded-full
         ${gradientClass}
