@@ -105,7 +105,7 @@ const HeroSection = () => {
               <button
                 className="cursor-pointer text-white border border-white hover:bg-white/5 font-medium text-base md:text-lg 3xl:text-xl py-2.5 md:py-3 3xl:py-4 px-6 md:px-8 3xl:px-10 rounded-xl transition duration-300"
                 onClick={() => {
-                  const el = document.getElementById("contacts");
+                  const el = document.getElementById("contact");
                   if (el) {
                     el.scrollIntoView({ behavior: "smooth" });
                   } else {
@@ -127,11 +127,11 @@ const HeroSection = () => {
         >
           <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg 3xl:max-w-2xl h-[350px] md:h-[400px] lg:h-[450px] 3xl:h-[600px]">
             <Image
-              src="/Shivanshu-portfolio/shivanshu_portfolio.jpg"
+              src="shivanshu_portfolio.jpg"
               alt="Profile"
               width={500}
               height={300}
-              className="relative z-10 rounded-lg w-full h-full object-cover shadow-xl"
+              className="relative z-10 rounded-lg w-full h-full object-cover object-top shadow-xl"
               unoptimized
             />
           </div>
