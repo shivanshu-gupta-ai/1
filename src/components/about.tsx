@@ -199,9 +199,7 @@ const About = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-xl 3xl:text-2xl text-white mb-16 3xl:mb-24 leading-relaxed text-center max-w-4xl 3xl:max-w-6xl mx-auto">
-            I develop AI-powered systems that seamlessly integrate cutting-edge
-            technical innovation with meaningful real-world business outcomes.
+          <p className="text-xl 3xl:text-2xl text-white mb-16 3xl:mb-24 leading-relaxed text-center max-w-4xl 3xl:max-w-6xl mx-auto"> 
             With deep expertise in analytics, intelligent automation, and
             strategic product thinking, I specialize in transforming complex
             data into actionable insights and scalable strategies that drive
