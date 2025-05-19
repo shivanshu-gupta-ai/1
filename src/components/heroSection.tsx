@@ -125,13 +125,13 @@ const HeroSection = () => {
             visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
           }`}
         >
-          <div className="relative w-full max-w-xl">
+          <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg h-[350px] md:h-[400px] lg:h-[450px]">
             <Image
-              src="/Shivanshu-portfolio/shivanshu_portfolio.jpg"
+              src="/shivanshu_portfolio.jpg"
               alt="Profile"
               width={500}
               height={300}
-              className="relative z-10 rounded-lg w-full h-120 object-cover shadow-xl"
+              className="relative z-10 rounded-lg w-full h-full object-cover shadow-xl"
               unoptimized
             />
           </div>
