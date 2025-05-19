@@ -127,11 +127,12 @@ const HeroSection = () => {
         >
           <div className="relative w-full max-w-md">
             <Image
-              src="/shivanshu_portfolio.jpg"
+              src="/Shivanshu-portfolio/shivanshu-portfolio.jpg"
               alt="Profile"
               width={500}
               height={300}
               className="relative z-10 rounded-lg w-full h-120 object-cover shadow-xl"
+              unoptimized
             />
           </div>
         </div>
