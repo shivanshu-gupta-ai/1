@@ -9,7 +9,7 @@ import ContactSection from "@/components/contact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col text-white">
       <Navbar />
       <HeroSection />
       <About />
