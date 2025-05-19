@@ -11,6 +11,10 @@
   --scroll-duration: 0.8s;
 }
 
+@theme{
+    --breakpoint-3xl: 112rem;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

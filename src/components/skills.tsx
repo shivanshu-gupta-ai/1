@@ -58,9 +58,9 @@ const Skills = () => {
   const backgroundElements = useMemo(
     () => (
       <div className="absolute inset-0 overflow-visible -z-10">
-        <div className="absolute w-96 h-96 rounded-full bg-purple-500/10 filter blur-3xl right-0 bottom-0 animate-pulse duration-[15000ms]" />
+        <div className="absolute w-96 h-96 3xl:w-[32rem] 3xl:h-[32rem] rounded-full bg-purple-500/10 filter blur-3xl right-0 bottom-0 animate-pulse duration-[15000ms]" />
         <div
-          className="absolute w-80 h-80 rounded-full bg-cyan-400/10 filter blur-3xl left-0 top-0 animate-pulse duration-[20000ms]"
+          className="absolute w-80 h-80 3xl:w-[28rem] 3xl:h-[28rem] rounded-full bg-cyan-400/10 filter blur-3xl left-0 top-0 animate-pulse duration-[20000ms]"
           style={{ animationDelay: "2s" }}
         />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOFYwYzkuOTQgMCAxOCA4LjA2IDE4IDE4aDEuOHoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIgMikiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIi8+PC9nPjwvc3ZnPg==')] opacity-10"></div>
@@ -115,7 +115,7 @@ const Skills = () => {
         return (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8 text-cyan-400"
+            className="h-8 w-8 3xl:h-10 3xl:w-10 text-cyan-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -132,7 +132,7 @@ const Skills = () => {
         return (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8 text-cyan-400"
+            className="h-8 w-8 3xl:h-10 3xl:w-10 text-cyan-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -149,7 +149,7 @@ const Skills = () => {
         return (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8 text-cyan-400"
+            className="h-8 w-8 3xl:h-10 3xl:w-10 text-cyan-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -166,7 +166,7 @@ const Skills = () => {
         return (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8 text-cyan-400"
+            className="h-8 w-8 3xl:h-10 3xl:w-10 text-cyan-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -194,7 +194,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 2xl:px-32 mx-auto relative overflow-hidden py-20"
+      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 2xl:px-32 3xl:px-48 mx-auto relative overflow-hidden py-20 3xl:py-32"
     >
       {/* Subtle background gradient */}
       <div className="absolute min-h-screen inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
@@ -202,26 +202,26 @@ const Skills = () => {
       {/* Animated background elements */}
       {backgroundElements}
 
-      <div className="w-full max-w-7xl z-10">
+      <div className="w-full max-w-7xl 3xl:max-w-[1920px] z-10">
         {/* Section header with fade-in animation */}
         <div
           className={`transition-all duration-1000 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-4xl font-bold text-center mb-4">
+          <h2 className="text-4xl 3xl:text-6xl font-bold text-center mb-4 3xl:mb-6">
             <span className="text-white">
               Core <span className="text-cyan-500">Competencies</span>
             </span>
           </h2>
-          <p className="text-xl text-white mb-16 leading-relaxed text-center max-w-4xl mx-auto">
+          <p className="text-xl 3xl:text-2xl text-white mb-16 3xl:mb-24 leading-relaxed text-center max-w-4xl 3xl:max-w-6xl mx-auto">
             A blend of product, technical, and leadership skills that drive
             results.
           </p>
         </div>
 
         {/* Skills categories with staggered animations */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 3xl:gap-12 mb-12 3xl:mb-24">
           {skillCategories.map((category, index) => (
             <div
               key={category.id}
@@ -234,7 +234,7 @@ const Skills = () => {
               onClick={() => handleCategoryClick(category.id)}
             >
               <div
-                className={`bg-gray-900/80 rounded-xl p-6 border transition-all duration-300 
+                className={`bg-gray-900/80 rounded-xl p-6 3xl:p-8 border transition-all duration-300 
                               ${
                                 activeCategory === category.id
                                   ? "border-cyan-500"
@@ -248,20 +248,20 @@ const Skills = () => {
                               overflow-hidden relative group hover:border-blue-500/50`}
               >
                 {/* Subtle hover effect - gradient line on top */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                <div className="absolute top-0 left-0 right-0 h-1 3xl:h-1.5 bg-gradient-to-r from-purple-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
 
                 {/* Category header */}
-                <div className="flex items-center mb-6">
-                  <div className="bg-cyan-400/20 p-3 rounded-full mr-4">
+                <div className="flex items-center mb-6 3xl:mb-8">
+                  <div className="bg-cyan-400/20 p-3 3xl:p-4 rounded-full mr-4 3xl:mr-6">
                     <IconComponent name={category.icon} />
                   </div>
-                  <h3 className="text-xl font-bold text-white">
+                  <h3 className="text-xl 3xl:text-2xl font-bold text-white">
                     {category.title}
                   </h3>
                 </div>
 
                 {/* Skills list */}
-                <div className="space-y-6">
+                <div className="space-y-6 3xl:space-y-8">
                   {category.skills.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}
@@ -276,13 +276,15 @@ const Skills = () => {
                         }ms`,
                       }}
                     >
-                      <div className="flex justify-between mb-1">
-                        <span className="text-gray-300">{skill.name}</span>
-                        <span className="text-cyan-400 font-medium">
+                      <div className="flex justify-between mb-1 3xl:mb-2">
+                        <span className="text-gray-300 3xl:text-lg">
+                          {skill.name}
+                        </span>
+                        <span className="text-cyan-400 font-medium 3xl:text-lg">
                           {skill.proficiency}%
                         </span>
                       </div>
-                      <div className="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
+                      <div className="w-full bg-gray-800 rounded-full h-2 3xl:h-3 overflow-hidden">
                         <div
                           className="h-full rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 transition-all duration-1000 ease-out"
                           style={{
@@ -301,15 +303,13 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="flex-1 items-center justify-center">
-          <h2 className="text-2xl font-bold text-center mb-8">
-            <span className=" text-white">
+        <div className="w-full max-w-4xl 3xl:max-w-6xl mx-auto flex flex-col items-center">
+          <h2 className="text-2xl 3xl:text-4xl font-bold text-center mb-8 3xl:mb-12">
+            <span className="text-white">
               Domain <span className="text-cyan-500">Expertise</span>
             </span>
           </h2>
-          <div className="flex items-center justify-center">
-            <BadgeContainer />
-          </div>
+          <BadgeContainer />
         </div>
       </div>
     </section>

@@ -108,7 +108,7 @@ const Navbar = () => {
           ? "py-2 bg-gray-900 border-b border-gray-800"
           : `transition-all duration-500 ease-in-out ${
               scrolled
-                ? "py-2 backdrop-blur-lg bg-gray-400/20 mt-2 border border-gray-800 mx-60 rounded-full shadow-lg shadow-cyan-900/20"
+                ? "py-2 backdrop-blur-lg bg-gray-400/20 mt-2 border border-gray-800 mx-60 3xl:mx-96 rounded-full shadow-lg shadow-cyan-900/20"
                 : "py-4 bg-transparent border-transparent"
             }`
       }`}
@@ -118,7 +118,7 @@ const Navbar = () => {
           isMobile
             ? "max-w-full"
             : `transition-all duration-500 ease-in-out ${
-                scrolled ? "max-w-3xl" : "max-w-6xl"
+                scrolled ? "max-w-3xl 3xl:max-w-5xl" : "max-w-6xl 3xl:max-w-7xl"
               }`
         }`}
       >
@@ -129,12 +129,14 @@ const Navbar = () => {
               isMobile
                 ? "text-xl"
                 : `transition-all duration-500 ease-in-out ${
-                    scrolled ? "text-xl" : "text-2xl"
+                    scrolled ? "text-xl 3xl:text-3xl" : "text-2xl 3xl:text-4xl"
                   }`
             }`}
           >
             <span className="font-extrabold text-white">Shivanshu</span>
-            <p className="text-cyan-500 text-xs font-medium">Data Scientist</p>
+            <p className="text-cyan-500 text-xs font-medium 3xl:text-base">
+              Data Scientist
+            </p>
           </Link>
 
           {isMobile ? (
@@ -171,13 +173,13 @@ const Navbar = () => {
               )}
             </>
           ) : (
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-8 3xl:space-x-12">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   className={`text-white hover:text-blue-400 transition-all duration-500 ease-in-out transform-gpu will-change-transform ${
-                    scrolled ? "text-sm" : "text-base"
+                    scrolled ? "text-sm 3xl:text-lg" : "text-base 3xl:text-xl"
                   }`}
                 >
                   {link.name}

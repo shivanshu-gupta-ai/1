@@ -38,11 +38,11 @@ const About = () => {
     () => (
       <div className="absolute inset-0 overflow-visible -z-10">
         <div
-          className="absolute w-96 h-96 rounded-full bg-blue-500/10 filter blur-3xl right-0 bottom-0 
+          className="absolute w-96 h-96 3xl:w-[32rem] 3xl:h-[32rem] rounded-full bg-blue-500/10 filter blur-3xl right-0 bottom-0 
                     animate-pulse duration-[15000ms]"
         />
         <div
-          className="absolute w-80 h-80 rounded-full bg-cyan-400/10 filter blur-3xl 
+          className="absolute w-80 h-80 3xl:w-[28rem] 3xl:h-[28rem] rounded-full bg-cyan-400/10 filter blur-3xl 
                    left-0 top-0 animate-pulse duration-[20000ms]"
           style={{ animationDelay: "2s" }}
         />
@@ -55,13 +55,13 @@ const About = () => {
   // Memoize the value cards to prevent unnecessary re-renders
   const valueCards = useMemo(
     () => (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 3xl:gap-8">
         {/* Impact-Oriented Card */}
-        <div className="bg-gray-900/80 rounded-xl p-6 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
-          <div className="bg-cyan-400/30 p-4 rounded-full mb-4">
+        <div className="bg-gray-900/80 rounded-xl p-6 3xl:p-8 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
+          <div className="bg-cyan-400/30 p-4 3xl:p-6 rounded-full mb-4 3xl:mb-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-cyan-400"
+              className="h-6 w-6 3xl:h-8 3xl:w-8 text-cyan-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -74,19 +74,21 @@ const About = () => {
               />
             </svg>
           </div>
-          <h3 className="text-xl font-bold text-white mb-2">Impact-Oriented</h3>
-          <p className="text-gray-300 text-sm">
+          <h3 className="text-xl 3xl:text-2xl font-bold text-white mb-2 3xl:mb-4">
+            Impact-Oriented
+          </h3>
+          <p className="text-gray-300 text-sm 3xl:text-base">
             Consistently driving measurable business outcomes through scalable
             AI solutions, automation, and deep data insights.
           </p>
         </div>
 
         {/* Collaborative Card */}
-        <div className="bg-gray-900/80 rounded-xl p-6 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
-          <div className="bg-cyan-400/30 p-4 rounded-full mb-4">
+        <div className="bg-gray-900/80 rounded-xl p-6 3xl:p-8 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
+          <div className="bg-cyan-400/30 p-4 3xl:p-6 rounded-full mb-4 3xl:mb-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-cyan-400"
+              className="h-6 w-6 3xl:h-8 3xl:w-8 text-cyan-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -99,19 +101,21 @@ const About = () => {
               />
             </svg>
           </div>
-          <h3 className="text-xl font-bold text-white mb-2">Collaborative</h3>
-          <p className="text-gray-300 text-sm">
+          <h3 className="text-xl 3xl:text-2xl font-bold text-white mb-2 3xl:mb-4">
+            Collaborative
+          </h3>
+          <p className="text-gray-300 text-sm 3xl:text-base">
             Bridging the gap between data science, engineering, and stakeholders
             by fostering trust, transparency, and shared goals.
           </p>
         </div>
 
         {/* Data-Driven Card */}
-        <div className="bg-gray-900/80 rounded-xl p-6 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
-          <div className="bg-cyan-400/30 p-4 rounded-full mb-4">
+        <div className="bg-gray-900/80 rounded-xl p-6 3xl:p-8 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
+          <div className="bg-cyan-400/30 p-4 3xl:p-6 rounded-full mb-4 3xl:mb-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-cyan-400"
+              className="h-6 w-6 3xl:h-8 3xl:w-8 text-cyan-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -124,19 +128,21 @@ const About = () => {
               />
             </svg>
           </div>
-          <h3 className="text-xl font-bold text-white mb-2">Data-Driven</h3>
-          <p className="text-gray-300 text-sm">
+          <h3 className="text-xl 3xl:text-2xl font-bold text-white mb-2 3xl:mb-4">
+            Data-Driven
+          </h3>
+          <p className="text-gray-300 text-sm 3xl:text-base">
             Embedding data thinking into every step—from exploration to
             deployment—to power intelligent, real-time decisions.
           </p>
         </div>
 
         {/* Innovative Card */}
-        <div className="bg-gray-900/80 rounded-xl p-6 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
-          <div className="bg-cyan-400/30 p-4 rounded-full mb-4">
+        <div className="bg-gray-900/80 rounded-xl p-6 3xl:p-8 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
+          <div className="bg-cyan-400/30 p-4 3xl:p-6 rounded-full mb-4 3xl:mb-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-cyan-300"
+              className="h-6 w-6 3xl:h-8 3xl:w-8 text-cyan-300"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -149,8 +155,10 @@ const About = () => {
               />
             </svg>
           </div>
-          <h3 className="text-xl font-bold text-white mb-2">Innovative</h3>
-          <p className="text-gray-300 text-sm">
+          <h3 className="text-xl 3xl:text-2xl font-bold text-white mb-2 3xl:mb-4">
+            Innovative
+          </h3>
+          <p className="text-gray-300 text-sm 3xl:text-base">
             Proactively identifying opportunities for AI and automation, and
             taking ownership from prototype to production.
           </p>
@@ -163,7 +171,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 2xl:px-32 mx-auto relative overflow-hidden py-20"
+      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 2xl:px-32 3xl:px-48 mx-auto relative overflow-hidden py-20 3xl:py-32"
     >
       {/* Subtle background gradient */}
       <div className="absolute min-h-screen inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
@@ -171,14 +179,14 @@ const About = () => {
       {/* Animated background elements */}
       {backgroundElements}
 
-      <div className="w-full max-w-7xl">
+      <div className="w-full max-w-7xl 3xl:max-w-[1920px]">
         {/* Section header with fade-in animation */}
         <div
           className={`transition-all duration-1000 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-4xl font-bold text-center mb-16">
+          <h2 className="text-4xl 3xl:text-6xl font-bold text-center mb-16 3xl:mb-24">
             <span className=" text-white">
               About <span className="text-cyan-500">Me</span>
             </span>
@@ -191,7 +199,7 @@ const About = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-xl text-white mb-16 leading-relaxed text-center max-w-4xl mx-auto">
+          <p className="text-xl 3xl:text-2xl text-white mb-16 3xl:mb-24 leading-relaxed text-center max-w-4xl 3xl:max-w-6xl mx-auto">
             I develop AI-powered systems that seamlessly integrate cutting-edge
             technical innovation with meaningful real-world business outcomes.
             With deep expertise in analytics, intelligent automation, and
@@ -207,13 +215,13 @@ const About = () => {
             isVisible ? "opacity-70 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="bg-white/10 border border-white/70 rounded-xl p-8 mb-16 max-w-4xl mx-auto">
-            <blockquote className="text-xl text-gray-100 italic mb-4">
+          <div className="bg-white/10 border border-white/70 rounded-xl p-8 3xl:p-12 mb-16 3xl:mb-24 max-w-4xl 3xl:max-w-6xl mx-auto">
+            <blockquote className="text-xl 3xl:text-2xl text-gray-100 italic mb-4 3xl:mb-6">
               &quot;The best Data Scientists go beyond models—they translate
               complexity into clarity, and insights into impact. Real value
               comes when curiosity meets business context.&quot;
             </blockquote>
-            <p className="text-right text-gray-200">
+            <p className="text-right text-gray-200 3xl:text-xl">
               — My Engineering Philosophy
             </p>
           </div>

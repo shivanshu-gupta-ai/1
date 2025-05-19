@@ -8,12 +8,12 @@ export default function BadgeContainer() {
     "Cloud Solutions",
     "Data Engineering",
     "Product Analytics",
-    "Agentic AI"
+    "Agentic AI",
   ];
 
   return (
     <div
-      className={`flex flex-wrap justify-items-center gap-4 transition-all duration-1000 delay-2000 ${
+      className={`flex flex-wrap justify-center gap-4 3xl:gap-8 transition-all duration-1000 delay-2000 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
@@ -28,7 +28,6 @@ export default function BadgeContainer() {
   );
 }
 
-
 function BadgeContent({
   text,
   gradientType,
@@ -36,7 +35,6 @@ function BadgeContent({
   text: string;
   gradientType: "cyan" | "purple";
 }) {
-
   const gradientClass =
     gradientType === "cyan"
       ? "bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-400"
@@ -45,9 +43,8 @@ function BadgeContent({
   return (
     <span
       className={`
-        inline-block
-        px-4 py-2
-        text-sm
+        px-4 py-2 3xl:px-8 3xl:py-4
+        text-sm 3xl:text-xl
         text-white
         rounded-full
         ${gradientClass}

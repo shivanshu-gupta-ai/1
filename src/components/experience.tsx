@@ -114,7 +114,7 @@ const ExperienceSection = () => {
   return (
     <section
       id="experience"
-      className="w-full min-h-screen flex flex-col items-start justify-start px-6 md:px-12 lg:px-24 2xl:px-32 mx-auto py-24 relative overflow-hidden"
+      className="w-full min-h-screen flex flex-col items-start justify-start px-6 md:px-12 lg:px-24 2xl:px-32 3xl:px-48 mx-auto py-24 3xl:py-32 relative overflow-hidden"
     >
       {/* Subtle background gradient - ensure z-index doesn't hide content */}
       <div className="absolute inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
@@ -123,20 +123,20 @@ const ExperienceSection = () => {
       <div className="absolute inset-0 overflow-visible -z-10">
         {/* Main large glow in bottom right */}
         <div
-          className="absolute w-96 h-96 rounded-full bg-purple-500/10 filter blur-3xl right-0 bottom-0 
+          className="absolute w-96 h-96 3xl:w-[32rem] 3xl:h-[32rem] rounded-full bg-purple-500/10 filter blur-3xl right-0 bottom-0 
                       animate-pulse duration-[15000ms]"
         />
 
         {/* Smaller glow in top left */}
         <div
-          className="absolute w-80 h-80 rounded-full bg-cyan-400/10 filter blur-3xl 
+          className="absolute w-80 h-80 3xl:w-[28rem] 3xl:h-[28rem] rounded-full bg-cyan-400/10 filter blur-3xl 
                      left-0 top-0 animate-pulse duration-[20000ms]"
           style={{ animationDelay: "2s" }}
         />
 
         {/* Small bright spot near center-left */}
         <div
-          className="absolute w-64 h-64 rounded-full bg-blue-300/15 filter blur-3xl 
+          className="absolute w-64 h-64 3xl:w-[24rem] 3xl:h-[24rem] rounded-full bg-blue-300/15 filter blur-3xl 
                      left-1/3 top-1/3 animate-pulse duration-[10000ms]"
           style={{ animationDelay: "1s" }}
         />
@@ -149,24 +149,27 @@ const ExperienceSection = () => {
         }`}
         style={{ zIndex: 1 }}
       >
-        {" "}
-        {/* Ensure z-index is set */}
-        <h2 className="text-4xl font-bold mb-2">
+        <h2 className="text-4xl 3xl:text-6xl font-bold mb-2 3xl:mb-4">
           Work <span className="text-cyan-500">Experience</span>
         </h2>
-        <p className="text-xl text-gray-300 mb-16">I&apos;ve worked on...</p>
+        <p className="text-xl 3xl:text-2xl text-gray-300 mb-16 3xl:mb-24">
+          I&apos;ve worked on...
+        </p>
       </div>
 
       {/* Timeline container - ensure it's visible */}
-      <div className="w-full max-w-7xl relative" style={{ zIndex: 1 }}>
+      <div
+        className="w-full max-w-7xl 3xl:max-w-[1920px] relative"
+        style={{ zIndex: 1 }}
+      >
         {/* Vertical line */}
-        <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-cyan-500 to-blue-500 opacity-70"></div>
+        <div className="absolute left-6 md:left-8 3xl:left-12 top-0 bottom-0 w-0.5 3xl:w-1 bg-gradient-to-b from-purple-500 via-cyan-500 to-blue-500 opacity-70"></div>
 
         {/* Experience items */}
         {experiences.map((exp, index) => (
           <div
             key={index}
-            className="animate-on-scroll mb-20 relative pl-20 md:pl-24"
+            className="animate-on-scroll mb-20 3xl:mb-32 relative pl-20 md:pl-24 3xl:pl-32"
             style={{
               opacity: 0,
               transform: "translateY(8px)",
@@ -176,17 +179,17 @@ const ExperienceSection = () => {
           >
             {/* Timeline dot with icon */}
             <div
-              className={`absolute left-0 p-4 rounded-full bg-gray-900 ${
+              className={`absolute left-0 p-4 3xl:p-6 rounded-full bg-gray-900 ${
                 exp.color === "purple"
-                  ? "border-2 border-purple-500"
+                  ? "border-2 3xl:border-4 border-purple-500"
                   : exp.color === "cyan"
-                  ? "border-2 border-cyan-500"
+                  ? "border-2 3xl:border-4 border-cyan-500"
                   : exp.color === "blue"
-                  ? "border-2 border-blue-500"
-                  : "border-2 border-teal-500"
+                  ? "border-2 3xl:border-4 border-blue-500"
+                  : "border-2 3xl:border-4 border-teal-500"
               } z-10`}
             >
-              {exp.icon}
+              <div className="3xl:scale-125">{exp.icon}</div>
             </div>
 
             {/* Content card */}
@@ -199,10 +202,10 @@ const ExperienceSection = () => {
                   : exp.color === "blue"
                   ? "border-blue-500/30 hover:border-blue-500 hover:shadow-blue-500/20"
                   : "border-teal-500/30 hover:border-teal-500 hover:shadow-teal-500/20"
-              } rounded-xl p-6 transition-all duration-300 shadow-lg`}
+              } rounded-xl p-6 3xl:p-8 transition-all duration-300 shadow-lg`}
             >
-              <div className="flex flex-wrap justify-between items-start mb-3">
-                <h3 className="text-2xl font-bold flex items-center">
+              <div className="flex flex-wrap justify-between items-start mb-3 3xl:mb-4">
+                <h3 className="text-2xl 3xl:text-3xl font-bold flex items-center">
                   {exp.company}
                   <a
                     href={exp.link}
@@ -228,16 +231,16 @@ const ExperienceSection = () => {
                       : exp.color === "blue"
                       ? "text-blue-400"
                       : "text-teal-400"
-                  } font-medium`}
+                  } font-medium 3xl:text-lg`}
                 >
                   {exp.duration}
                 </div>
               </div>
 
-              <div className="mb-4">
+              <div className="mb-4 3xl:mb-6">
                 <div className="flex items-center">
                   <span
-                    className={`text-xl font-medium ${
+                    className={`text-xl 3xl:text-2xl font-medium ${
                       exp.color === "purple"
                         ? "text-purple-300"
                         : exp.color === "cyan"
@@ -249,15 +252,17 @@ const ExperienceSection = () => {
                   >
                     {exp.role}
                   </span>
-                  <span className="mx-2 text-gray-500">•</span>
-                  <span className="text-gray-400">{exp.type}</span>
+                  <span className="mx-2 3xl:mx-3 text-gray-500">•</span>
+                  <span className="text-gray-400 3xl:text-lg">{exp.type}</span>
                 </div>
               </div>
 
-              <p className="text-gray-300 leading-relaxed">{exp.description}</p>
+              <p className="text-gray-300 leading-relaxed 3xl:text-lg 3xl:leading-relaxed">
+                {exp.description}
+              </p>
 
               {/* Skills tags */}
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-4 3xl:mt-6 flex flex-wrap gap-2 3xl:gap-3">
                 {exp.tags.map((tag, tagIndex) => (
                   <Tag key={tagIndex} text={tag} color={exp.color} />
                 ))}
@@ -269,7 +274,7 @@ const ExperienceSection = () => {
 
       {/* Bottom decoration */}
       <div
-        className={`w-full flex justify-center mt-8 transition-all duration-1000 delay-1000 ${
+        className={`w-full flex justify-center mt-8 3xl:mt-12 transition-all duration-1000 delay-1000 ${
           visible ? "opacity-100" : "opacity-0"
         }`}
       ></div>

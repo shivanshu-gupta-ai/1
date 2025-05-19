@@ -165,9 +165,9 @@ const Projects = () => {
   const backgroundElements = useMemo(
     () => (
       <div className="absolute inset-0 overflow-visible -z-10">
-        <div className="absolute w-96 h-96 rounded-full bg-purple-500/10 filter blur-3xl right-0 top-0 animate-pulse duration-[15000ms]" />
+        <div className="absolute w-96 h-96 3xl:w-[32rem] 3xl:h-[32rem] rounded-full bg-purple-500/10 filter blur-3xl right-0 top-0 animate-pulse duration-[15000ms]" />
         <div
-          className="absolute w-80 h-80 rounded-full bg-cyan-400/10 filter blur-3xl left-0 bottom-0 animate-pulse duration-[20000ms]"
+          className="absolute w-80 h-80 3xl:w-[28rem] 3xl:h-[28rem] rounded-full bg-cyan-400/10 filter blur-3xl left-0 bottom-0 animate-pulse duration-[20000ms]"
           style={{ animationDelay: "2s" }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 to-transparent"></div>
@@ -184,12 +184,12 @@ const Projects = () => {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <h2 className="text-4xl font-bold text-center mb-8">
+        <h2 className="text-4xl 3xl:text-6xl font-bold text-center mb-8 3xl:mb-12">
           <span className="text-white">
             Key <span className="text-cyan-500">Projects</span>
           </span>
         </h2>
-        <p className="text-xl text-white mb-16 leading-relaxed text-center max-w-4xl mx-auto">
+        <p className="text-xl 3xl:text-2xl text-white mb-16 3xl:mb-24 leading-relaxed text-center max-w-4xl 3xl:max-w-6xl mx-auto">
           A showcase of products I&apos;ve built and the measurable impact
           they&apos;ve had on users and businesses.
         </p>
@@ -201,7 +201,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 2xl:px-32 mx-auto relative overflow-hidden py-20"
+      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 2xl:px-32 3xl:px-48 mx-auto relative overflow-hidden py-20 3xl:py-32"
     >
       {/* Subtle background gradient */}
       <div className="absolute min-h-screen inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
@@ -209,12 +209,12 @@ const Projects = () => {
       {/* Animated background elements */}
       {backgroundElements}
 
-      <div className="w-full max-w-7xl">
+      <div className="w-full max-w-7xl 3xl:max-w-[1920px]">
         {/* Section header */}
         {headerSection}
 
         {/* Projects grid with staggered animations */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 3xl:gap-12">
           {projects.map((project: Project, index: number) => (
             <ProjectCard
               key={index}
