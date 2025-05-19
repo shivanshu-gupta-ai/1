@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "Shivanshu",
   description: "Hi I am shivanshu, a data-scientist and this is my portfolio website",
   icons: {
-    icon: "/Shivanshu-portfolio/logo_icon.ico", // 👈 include the basePath here
+    icon: "/Shivanshu-portfolio/portfolio.ico", // 👈 include the basePath here
   },
 };
 
