@@ -44,7 +44,7 @@ const Projects = () => {
         label1: "Resolution Time Reduction",
         value1: "35%",
         label2: "Avg. Time Saved per Ticket",
-        value2: "2 mins",
+        value2: "20-60 mins",
       },
       tags: ["AI", "Rest API", "Jira Automation", "Ticket Intelligence"],
     },
