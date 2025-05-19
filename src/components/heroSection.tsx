@@ -12,7 +12,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="w-full min-h-screen flex flex-col items-center justify-center px-4 md:px-12 lg:px-24 mx-auto relative overflow-hidden pt-24 md:pt-16">
+    <section className="w-full min-h-screen flex flex-col items-center justify-center px-4 md:px-12 lg:px-24 2xl:px-32 mx-auto relative overflow-hidden pt-24 md:pt-16">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
 
@@ -35,9 +35,9 @@ const HeroSection = () => {
         {/* <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/5 to-transparent"></div> */}
       </div>
 
-      <div className="w-full flex flex-col md:flex-row justify-between items-center">
+      <div className="w-full flex flex-col md:flex-row justify-between items-center max-w-[1920px]">
         {/* Left section - Text content with fade-in animations */}
-        <div className="md:w-1/2 mb-12 md:mb-0">
+        <div className="md:w-1/2 mb-12 md:mb-0 max-w-2xl">
           <div
             className={`transition-all duration-1000 delay-300 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -89,32 +89,32 @@ const HeroSection = () => {
             }`}
           >
             <div className="flex flex-col md:flex-row gap-3 md:gap-4 mb-12 md:mb-20">
-                <button
+              <button
                 className="bg-cyan-600 hover:bg-cyan-950 cursor-pointer text-white text-base md:text-lg py-2.5 md:py-3 px-6 md:px-8 rounded-xl transition duration-300"
                 onClick={() => {
                   const el = document.getElementById("projects");
                   if (el) {
-                  el.scrollIntoView({ behavior: "smooth" });
+                    el.scrollIntoView({ behavior: "smooth" });
                   } else {
-                  window.location.href = "/#projects";
+                    window.location.href = "/#projects";
                   }
                 }}
-                >
+              >
                 View My Work
-                </button>
-                <button
+              </button>
+              <button
                 className="cursor-pointer text-white border border-white hover:bg-white/5 font-medium text-base md:text-lg py-2.5 md:py-3 px-6 md:px-8 rounded-xl transition duration-300"
                 onClick={() => {
                   const el = document.getElementById("contacts");
                   if (el) {
-                  el.scrollIntoView({ behavior: "smooth" });
+                    el.scrollIntoView({ behavior: "smooth" });
                   } else {
-                  window.location.href = "/#contact";
+                    window.location.href = "/#contact";
                   }
                 }}
-                >
+              >
                 Get in Touch
-                </button>
+              </button>
             </div>
           </div>
         </div>
@@ -125,7 +125,7 @@ const HeroSection = () => {
             visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
           }`}
         >
-          <div className="relative w-full max-w-md">
+          <div className="relative w-full max-w-xl">
             <Image
               src="/Shivanshu-portfolio/shivanshu_portfolio.jpg"
               alt="Profile"

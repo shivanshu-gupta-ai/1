@@ -114,7 +114,7 @@ const ExperienceSection = () => {
   return (
     <section
       id="experience"
-      className="w-full min-h-screen flex flex-col items-start justify-start px-6 md:px-12 lg:px-24 mx-auto py-24 relative overflow-hidden"
+      className="w-full min-h-screen flex flex-col items-start justify-start px-6 md:px-12 lg:px-24 2xl:px-32 mx-auto py-24 relative overflow-hidden"
     >
       {/* Subtle background gradient - ensure z-index doesn't hide content */}
       <div className="absolute inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
@@ -158,7 +158,7 @@ const ExperienceSection = () => {
       </div>
 
       {/* Timeline container - ensure it's visible */}
-      <div className="w-full relative" style={{ zIndex: 1 }}>
+      <div className="w-full max-w-7xl relative" style={{ zIndex: 1 }}>
         {/* Vertical line */}
         <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-cyan-500 to-blue-500 opacity-70"></div>
 

@@ -163,7 +163,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 mx-auto  relative overflow-hidden py-20"
+      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 2xl:px-32 mx-auto relative overflow-hidden py-20"
     >
       {/* Subtle background gradient */}
       <div className="absolute min-h-screen inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
@@ -171,7 +171,7 @@ const About = () => {
       {/* Animated background elements */}
       {backgroundElements}
 
-      <div className="w-full max-w-5xl">
+      <div className="w-full max-w-7xl">
         {/* Section header with fade-in animation */}
         <div
           className={`transition-all duration-1000 delay-300 ${
@@ -191,7 +191,7 @@ const About = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-xl text-white mb-16 leading-relaxed text-center max-w-3xl mx-auto">
+          <p className="text-xl text-white mb-16 leading-relaxed text-center max-w-4xl mx-auto">
             I develop AI-powered systems that seamlessly integrate cutting-edge
             technical innovation with meaningful real-world business outcomes.
             With deep expertise in analytics, intelligent automation, and
@@ -207,11 +207,15 @@ const About = () => {
             isVisible ? "opacity-70 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="bg-white/10 border border-white/70 rounded-xl p-8 mb-16 max-w-3xl mx-auto">
+          <div className="bg-white/10 border border-white/70 rounded-xl p-8 mb-16 max-w-4xl mx-auto">
             <blockquote className="text-xl text-gray-100 italic mb-4">
-              &quot;The best Data Scientists go beyond models—they translate complexity into clarity, and insights into impact. Real value comes when curiosity meets business context.&quot;
+              &quot;The best Data Scientists go beyond models—they translate
+              complexity into clarity, and insights into impact. Real value
+              comes when curiosity meets business context.&quot;
             </blockquote>
-            <p className="text-right text-gray-200">— My Engineering Philosophy</p>
+            <p className="text-right text-gray-200">
+              — My Engineering Philosophy
+            </p>
           </div>
         </div>
       </div>

@@ -194,7 +194,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 mx-auto relative overflow-hidden py-20"
+      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 2xl:px-32 mx-auto relative overflow-hidden py-20"
     >
       {/* Subtle background gradient */}
       <div className="absolute min-h-screen inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
@@ -202,7 +202,7 @@ const Skills = () => {
       {/* Animated background elements */}
       {backgroundElements}
 
-      <div className="w-full max-w-6xl z-10">
+      <div className="w-full max-w-7xl z-10">
         {/* Section header with fade-in animation */}
         <div
           className={`transition-all duration-1000 delay-300 ${
@@ -214,7 +214,7 @@ const Skills = () => {
               Core <span className="text-cyan-500">Competencies</span>
             </span>
           </h2>
-          <p className="text-xl text-white mb-16 leading-relaxed text-center max-w-3xl mx-auto">
+          <p className="text-xl text-white mb-16 leading-relaxed text-center max-w-4xl mx-auto">
             A blend of product, technical, and leadership skills that drive
             results.
           </p>

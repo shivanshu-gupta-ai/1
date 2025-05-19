@@ -15,10 +15,26 @@ const ContactSection = () => {
   const [hovered, setHovered] = useState<string | null>(null);
 
   const socials = [
-    { name: "LinkedIn", icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/shivanshu-gupta-09a4ab75/" },
-    { name: "Medium", icon: <FileText size={20} />, href: "https://medium.com/@shivanshug55" },
-    { name: "YouTube", icon: <Youtube size={20} />, href: "https://www.youtube.com/channel/UCakiZI89M23X5GeBzgfgAlg" },
-    { name: "Instagram", icon: <Instagram size={20} />, href: "https://www.instagram.com/ai_brooo/" },
+    {
+      name: "LinkedIn",
+      icon: <Linkedin size={20} />,
+      href: "https://www.linkedin.com/in/shivanshu-gupta-09a4ab75/",
+    },
+    {
+      name: "Medium",
+      icon: <FileText size={20} />,
+      href: "https://medium.com/@shivanshug55",
+    },
+    {
+      name: "YouTube",
+      icon: <Youtube size={20} />,
+      href: "https://www.youtube.com/channel/UCakiZI89M23X5GeBzgfgAlg",
+    },
+    {
+      name: "Instagram",
+      icon: <Instagram size={20} />,
+      href: "https://www.instagram.com/ai_brooo/",
+    },
   ];
 
   useEffect(() => {
@@ -162,7 +178,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="w-full h-auto flex flex-col md:flex-row items-center justify-center relative overflow-hidden pt-8 pb-8"
+      className="w-full h-auto flex flex-col md:flex-row items-center justify-center relative overflow-hidden pt-8 pb-8 px-6 md:px-12 lg:px-24 2xl:px-32"
     >
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
@@ -187,7 +203,7 @@ const ContactSection = () => {
       </div>
 
       {/* Contact Form - Left side */}
-      <div className="w-full md:w-1/2 h-full flex flex-col justify-center px-6 md:px-12 lg:px-24 py-16 md:py-0">
+      <div className="w-full md:w-1/2 h-full flex flex-col justify-center px-6 md:px-12 lg:px-24 2xl:px-32 py-16 md:py-0 max-w-4xl">
         <div
           className={`transition-all duration-1000 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"

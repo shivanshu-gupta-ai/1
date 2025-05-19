@@ -189,7 +189,7 @@ const Projects = () => {
             Key <span className="text-cyan-500">Projects</span>
           </span>
         </h2>
-        <p className="text-xl text-white mb-16 leading-relaxed text-center max-w-3xl mx-auto">
+        <p className="text-xl text-white mb-16 leading-relaxed text-center max-w-4xl mx-auto">
           A showcase of products I&apos;ve built and the measurable impact
           they&apos;ve had on users and businesses.
         </p>
@@ -201,7 +201,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 mx-auto relative overflow-hidden py-20"
+      className="w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 2xl:px-32 mx-auto relative overflow-hidden py-20"
     >
       {/* Subtle background gradient */}
       <div className="absolute min-h-screen inset-0 bg-gradient-to-br from-black to-gray-900 -z-20"></div>
@@ -209,7 +209,7 @@ const Projects = () => {
       {/* Animated background elements */}
       {backgroundElements}
 
-      <div className="w-full max-w-6xl">
+      <div className="w-full max-w-7xl">
         {/* Section header */}
         {headerSection}
 
