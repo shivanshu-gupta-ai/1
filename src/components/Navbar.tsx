@@ -23,7 +23,7 @@ const Navbar = () => {
     }
 
     resizeRAF.current = requestAnimationFrame(() => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 1111);
     });
   }, []);
 

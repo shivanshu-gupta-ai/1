@@ -78,8 +78,8 @@ const About = () => {
             Impact-Oriented
           </h3>
           <p className="text-gray-300 text-sm 3xl:text-base">
-            Consistently driving measurable business outcomes through scalable
-            AI solutions, automation, and deep data insights.
+            Delivering business impact through scalable AI, automation, and data
+            insights.
           </p>
         </div>
 
@@ -105,8 +105,8 @@ const About = () => {
             Collaborative
           </h3>
           <p className="text-gray-300 text-sm 3xl:text-base">
-            Bridging the gap between data science, engineering, and stakeholders
-            by fostering trust, transparency, and shared goals.
+            Connecting data science, engineering, and stakeholders through
+            trust, transparency, and aligned goals.
           </p>
         </div>
 
@@ -132,8 +132,8 @@ const About = () => {
             Data-Driven
           </h3>
           <p className="text-gray-300 text-sm 3xl:text-base">
-            Embedding data thinking into every step—from exploration to
-            deployment—to power intelligent, real-time decisions.
+            Embedding data thinking end-to-end to drive smart, real-time
+            decisions.
           </p>
         </div>
 
@@ -159,8 +159,7 @@ const About = () => {
             Innovative
           </h3>
           <p className="text-gray-300 text-sm 3xl:text-base">
-            Proactively identifying opportunities for AI and automation, and
-            taking ownership from prototype to production.
+            Owning AI and automations—from spotting opportunities to production.
           </p>
         </div>
       </div>
@@ -199,7 +198,7 @@ const About = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-xl 3xl:text-2xl text-white mb-16 3xl:mb-24 leading-relaxed text-center max-w-4xl 3xl:max-w-6xl mx-auto"> 
+          <p className="text-xl 3xl:text-2xl text-white mb-16 3xl:mb-24 leading-relaxed text-center max-w-4xl 3xl:max-w-6xl mx-auto">
             With deep expertise in analytics, intelligent automation, and
             strategic product thinking, I specialize in transforming complex
             data into actionable insights and scalable strategies that drive

@@ -4,15 +4,15 @@ const MetricsDisplay = () => {
   const metrics = [
     {
       value: "35%",
-      description: "faster ticket resolution with intelligent automation"
+      description: "Faster ticket resolution with intelligent automation"
     },
     {
       value: "$1.2M",
-      description: "in projected yearly savings through automation"
+      description: "Projected yearly savings through AI Automation"
     },
     {
       value: "70%",
-      description: "reduction in time spent managing customer queries"
+      description: "Reduction in time spent managing customer queries"
     }
   ];
 

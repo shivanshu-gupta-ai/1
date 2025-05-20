@@ -36,9 +36,9 @@ const ContactSection = () => {
       href: "https://www.instagram.com/ai_brooo/",
     },
     {
-      name: "E-mail",
+      name: "shivanshu.ai.biz@gmail.com",
       icon: <Mail size={20} />,
-      href: "mailto:shivanshu@gmail.com",
+      href: "mailto:shivanshu.ai.biz@gmail.com",
     },
   ];
 

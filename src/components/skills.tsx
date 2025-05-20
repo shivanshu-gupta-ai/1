@@ -76,7 +76,7 @@ const Skills = () => {
       icon: "code",
       skills: [
         { name: "Cloud Computing (AWS, Azure)", proficiency: 90 },
-        { name: "AI/ML Development (Sagemaker)", proficiency: 85 },
+        { name: "AI/ML Development", proficiency: 85 },
         { name: "Python Programming", proficiency: 90 },
         { name: "SQL & Data Warehousing", proficiency: 90 },
         { name: "ETL & Pipeline Automation", proficiency: 95 },

@@ -41,7 +41,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <h3 className="text-xl 3xl:text-2xl font-bold text-white mb-3 3xl:mb-4">
           {title}
         </h3>
-        <p className="text-gray-300 mb-6 3xl:mb-8 text-sm 3xl:text-base">
+        <p className="text-gray-300 mb-6 3xl:mb-8 text-sm 3xl:text-base flex-grow">
           {description}
         </p>
 
