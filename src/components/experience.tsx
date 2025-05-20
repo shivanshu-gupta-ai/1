@@ -149,10 +149,10 @@ const ExperienceSection = () => {
         }`}
         style={{ zIndex: 1 }}
       >
-        <h2 className="text-4xl 3xl:text-6xl font-bold mb-2 3xl:mb-4">
+        <h2 className="text-4xl 3xl:text-6xl text-center font-bold mb-2 3xl:mb-4">
           Work <span className="text-cyan-500">Experience</span>
         </h2>
-        <p className="text-xl 3xl:text-2xl text-gray-300 mb-16 3xl:mb-24">
+        <p className="text-xl 3xl:text-2xl text-center text-gray-300 mb-16 3xl:mb-24">
           I&apos;ve worked on...
         </p>
       </div>

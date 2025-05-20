@@ -89,7 +89,7 @@ const HeroSection = () => {
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="flex flex-col md:flex-row gap-4 md:gap-4 3xl:gap-6 mb-8 md:mb-20 3xl:mb-24">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-4 3xl:gap-6 mt-16 md:mb-16 3xl:mb-20">
               <button
                 className="bg-cyan-600 hover:bg-cyan-950 cursor-pointer text-white text-base md:text-lg 3xl:text-xl py-2.5 md:py-3 3xl:py-4 px-6 md:px-8 3xl:px-10 rounded-xl transition duration-300"
                 onClick={() => {
