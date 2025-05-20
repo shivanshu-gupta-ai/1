@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import MetricsDisplay from "./ui/heroBadge";
 
 const HeroSection = () => {
   // Animation visibility state
@@ -78,8 +79,8 @@ const HeroSection = () => {
             }`}
           >
             <p className="text-xl md:text-2xl 3xl:text-3xl text-gray-200 mt-4 md:mt-6 3xl:mt-8 mb-6 md:mb-8 3xl:mb-12 max-w-full">
-              I&apos;m a data scientist specializing in product analytics, and
-              AI driven intelligent tools that solve real-world problems.
+              I&apos;m a data scientist specializing in data analytics, and AI
+              Automations that solve real-world problems
             </p>
           </div>
 
@@ -88,7 +89,7 @@ const HeroSection = () => {
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="flex flex-col md:flex-row gap-3 md:gap-4 3xl:gap-6 mb-12 md:mb-20 3xl:mb-24">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-4 3xl:gap-6 mb-8 md:mb-20 3xl:mb-24">
               <button
                 className="bg-cyan-600 hover:bg-cyan-950 cursor-pointer text-white text-base md:text-lg 3xl:text-xl py-2.5 md:py-3 3xl:py-4 px-6 md:px-8 3xl:px-10 rounded-xl transition duration-300"
                 onClick={() => {
@@ -116,6 +117,7 @@ const HeroSection = () => {
                 Get in Touch
               </button>
             </div>
+            <MetricsDisplay />
           </div>
         </div>
 
@@ -125,7 +127,7 @@ const HeroSection = () => {
             visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
           }`}
         >
-          <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg 3xl:max-w-2xl h-[350px] md:h-[400px] lg:h-[450px] 3xl:h-[600px]">
+          <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg 3xl:max-w-2xl h-[350px] md:h-[500px] lg:h-[600px] 3xl:h-[800px]">
             <Image
               src="/1/shivanshu_portfolio.jpg"
               alt="Profile"

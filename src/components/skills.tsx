@@ -96,13 +96,13 @@ const Skills = () => {
     },
     {
       id: "leadership",
-      title: "Collaboration & Leadership",
+      title: "Leadership skills ",
       icon: "team",
       skills: [
-        { name: "Cross-functional Communication", proficiency: 90 },
+        { name: "Team communication", proficiency: 90 },
         { name: "Stakeholder Alignment", proficiency: 85 },
-        { name: "Mentorship & Knowledge Sharing", proficiency: 80 },
-        { name: "Problem Solving & Root Cause Analysis", proficiency: 90 },
+        { name: "Mentorship & KT ", proficiency: 80 },
+        { name: "Problem solving & RCA", proficiency: 90 },
         { name: "Data Storytelling", proficiency: 95 },
       ],
     },
@@ -221,11 +221,11 @@ const Skills = () => {
         </div>
 
         {/* Skills categories with staggered animations */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 3xl:gap-12 mb-12 3xl:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 3xl:gap-12 mb-12 3xl:mb-24 auto-rows-fr">
           {skillCategories.map((category, index) => (
             <div
               key={category.id}
-              className={`transition-all duration-1000 ${
+              className={`transition-all duration-1000 h-full ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -234,7 +234,7 @@ const Skills = () => {
               onClick={() => handleCategoryClick(category.id)}
             >
               <div
-                className={`bg-gray-900/80 rounded-xl p-6 3xl:p-8 border transition-all duration-300 
+                className={`bg-gray-900/80 rounded-xl p-6 3xl:p-8 border transition-all duration-300 h-full flex flex-col
                               ${
                                 activeCategory === category.id
                                   ? "border-cyan-500"
@@ -260,8 +260,8 @@ const Skills = () => {
                   </h3>
                 </div>
 
-                {/* Skills list */}
-                <div className="space-y-6 3xl:space-y-8">
+                {/* Skills list - centered vertically */}
+                <div className="space-y-6 3xl:space-y-8 flex-grow flex flex-col justify-center">
                   {category.skills.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}

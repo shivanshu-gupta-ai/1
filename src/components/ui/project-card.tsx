@@ -26,12 +26,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <div
-      className={`transition-all duration-1000 hover:scale-[1.02] ${
+      className={`transition-all duration-1000 hover:scale-[1.02] h-full ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
       style={{ transitionDelay: delay }}
     >
-      <div className="bg-gray-900/80 rounded-xl p-6 3xl:p-8 border border-gray-800 hover:border-blue-500/50 overflow-hidden relative group">
+      <div className="bg-gray-900/80 rounded-xl p-6 3xl:p-8 border border-gray-800 hover:border-blue-500/50 overflow-hidden relative group h-full flex flex-col">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
 
         <div className="bg-cyan-400/20 p-4 3xl:p-6 rounded-full mb-4 3xl:mb-6 w-fit">

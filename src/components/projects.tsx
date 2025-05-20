@@ -214,7 +214,7 @@ const Projects = () => {
         {headerSection}
 
         {/* Projects grid with staggered animations */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 3xl:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 3xl:gap-12 auto-rows-fr">
           {projects.map((project: Project, index: number) => (
             <ProjectCard
               key={index}
