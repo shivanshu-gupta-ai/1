@@ -127,7 +127,7 @@ const HeroSection = () => {
             visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
           }`}
         >
-          <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg 3xl:max-w-2xl h-[350px] md:h-[600px] lg:h-[680px] 3xl:h-[820px]">
+          <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg 3xl:max-w-2xl h-[350px] md:h-[600px] lg:h-[680px] 3xl:h-[800px]">
             <Image
               src="/1/shivanshu_portfolio.jpg"
               alt="Profile"
