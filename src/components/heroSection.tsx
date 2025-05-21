@@ -44,7 +44,7 @@ const HeroSection = () => {
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <h1 className="text-3xl md:text-4xl lg:text-4xl 3xl:text-6xl mt-4 md:mt-16 leading-normal flex flex-col">
+            <h1 className="text-3xl md:text-4xl lg:text-4xl 3xl:text-6xl mt-2 md:mt-16 leading-normal flex flex-col">
               <p className="rounded-full bg-neutral-800 px-3 py-1 mb-4 md:mb-6 3xl:mb-8 text-xs md:text-sm 3xl:text-base text-white inline-block self-start">
                 <span className="inline-block">AI Engineer</span>
                 <span className="inline-block mx-4">•</span>
@@ -52,7 +52,7 @@ const HeroSection = () => {
                 <span className="inline-block mx-4">•</span>
                 <span className="inline-block">Data Storyteller</span>
               </p>
-              <span className="text-4xl md:text-5xl 3xl:text-7xl font font-semibold text-white flex flex-col gap-1">
+              <span className="text-4xl md:text-5xl 3xl:text-7xl mt-2 font font-semibold text-white flex flex-col gap-1">
                 <p>
                   Delivering{" "}
                   <span className="text-cyan-500">
@@ -78,9 +78,9 @@ const HeroSection = () => {
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <p className="text-xl md:text-2xl 3xl:text-3xl text-gray-200 mt-4 md:mt-6 3xl:mt-8 mb-6 md:mb-8 3xl:mb-12 max-w-full">
+            <p className="text-xl md:text-2xl 3xl:text-3xl text-gray-200 mt-8 mb-8 max-w-full">
               I&apos;m a data scientist specializing in data analytics, and AI
-              Automations that solve real-world problems
+              Automations that solve real-world problems
             </p>
           </div>
 
@@ -89,7 +89,7 @@ const HeroSection = () => {
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="flex flex-col md:flex-row gap-4 md:gap-4 3xl:gap-6 mt-16 md:mb-16 3xl:mb-20">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-4 3xl:gap-6 mt-12 mb-10">
               <button
                 className="bg-cyan-600 hover:bg-cyan-950 cursor-pointer text-white text-base md:text-lg 3xl:text-xl py-2.5 md:py-3 3xl:py-4 px-6 md:px-8 3xl:px-10 rounded-xl transition duration-300"
                 onClick={() => {

@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as THREE from "three";
 import dynamic from "next/dynamic";
-import { Linkedin, FileText, Youtube, Instagram, Mail } from "lucide-react";
+import { Linkedin, FileText, Youtube, Instagram, Mail, Github } from "lucide-react";
 
 // Dynamically import the globe component with no SSR
 const Globe = dynamic(() => import("./Globe"), { ssr: false });
@@ -36,9 +36,14 @@ const ContactSection = () => {
       href: "https://www.instagram.com/ai_brooo/",
     },
     {
-      name: "shivanshu.ai.biz@gmail.com",
+      name: "G-Mail",
       icon: <Mail size={20} />,
       href: "mailto:shivanshu.ai.biz@gmail.com",
+    },
+    {
+      name: "Github",
+      icon: <Github size={20} />,
+      href: "https://github.com/Shiv907/",
     },
   ];
 
@@ -246,7 +251,7 @@ const ContactSection = () => {
               Feel free to connect with me on these platforms:
             </p>
 
-            <div className="space-y-3 3xl:space-y-4">
+            <div className="space-y-1 3xl:space-y-2">
               {socials.map((social) => (
                 <a
                   key={social.name}

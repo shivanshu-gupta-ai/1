@@ -55,7 +55,7 @@ const About = () => {
   // Memoize the value cards to prevent unnecessary re-renders
   const valueCards = useMemo(
     () => (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 3xl:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 3xl:gap-12">
         {/* Impact-Oriented Card */}
         <div className="bg-gray-900/80 rounded-xl p-6 3xl:p-8 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
           <div className="bg-cyan-400/30 p-4 3xl:p-6 rounded-full mb-4 3xl:mb-6">
@@ -85,7 +85,7 @@ const About = () => {
 
         {/* Collaborative Card */}
         <div className="bg-gray-900/80 rounded-xl p-6 3xl:p-8 flex flex-col items-center text-center border border-gray-800 hover:border-blue-500/50 transition-all">
-          <div className="bg-cyan-400/30 p-4 3xl:p-6 rounded-full mb-4 3xl:mb-6">
+          <div className="bg-white/5 p-4 3xl:p-6 rounded-full mb-4 3xl:mb-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 3xl:h-8 3xl:w-8 text-cyan-400"
@@ -105,8 +105,8 @@ const About = () => {
             Collaborative
           </h3>
           <p className="text-gray-300 text-sm 3xl:text-base">
-            Connecting data science, engineering, and stakeholders through
-            trust, transparency, and aligned goals.
+            Aligning data science, engineering, and stakeholders with trust and
+            transparency.
           </p>
         </div>
 
