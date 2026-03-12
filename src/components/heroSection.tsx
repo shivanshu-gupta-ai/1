@@ -64,7 +64,7 @@ const HeroSection = () => {
                   </span>
                   with{" "}
                   <span className="text-cyan-500">
-                    <strong>Agentic-AI </strong>
+                    <strong>Agentic </strong>
                   </span>
                 </p>
                 Systems
