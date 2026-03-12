@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as THREE from "three";
 import dynamic from "next/dynamic";
-import { Linkedin, FileText, Youtube, Instagram, Mail, Github } from "lucide-react";
+import { Linkedin, FileText, Youtube, Instagram, Mail, Github, Phone } from "lucide-react";
 
 // Dynamically import the globe component with no SSR
 const Globe = dynamic(() => import("./Globe"), { ssr: false });
@@ -42,7 +42,7 @@ const ContactSection = () => {
     },
     {
       name: "PH:+916355284382",
-      icon: <Mail size={20} />,
+      icon: <Phone size={20} />,
       href: "tel:+916355284382",
     },
     {
