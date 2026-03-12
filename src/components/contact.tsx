@@ -41,7 +41,7 @@ const ContactSection = () => {
       href: "mailto:shivanshug55@gmail.com",
     },
     {
-      name: "Phone number: +916355284382",
+      name: "Phone number",
       icon: <Mail size={20} />,
       href: "tel:+916355284382",
     },

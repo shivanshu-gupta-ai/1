@@ -77,7 +77,7 @@ const HeroSection = () => {
               }`}
           >
             <p className="text-xl md:text-2xl 3xl:text-3xl text-gray-200 mt-8 mb-8 max-w-full">
-              I&apos;m a data scientist specializing in Analytics, and Agentic-AI
+              I&apos;m a data scientist specializing in Analytics, and Agentic
               Systems that solve real-world problems
             </p>
           </div>
