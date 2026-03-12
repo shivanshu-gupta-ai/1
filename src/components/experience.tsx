@@ -68,10 +68,10 @@ const ExperienceSection = () => {
       type: "Full-time",
       duration: "HRS Group - Oct 2023 - present",
       description:
-        "Developed AI-powered systems for intelligent ticket recommendations and automated email responses, complemented by data engineering pipelines for customer insights derived from conversational AI interactions",
+        "Developed AI-powered systems for intelligent ticket recommendations and automated email responses, complemented by data engineering pipelines for customer insights derived from conversational AI interactions from Voice Bot and Chatbot",
       icon: <Code className="text-purple-500" size={28} />,
       color: "purple",
-      tags: ["AWS", "Claude", "Rest API", "Sagemake", "Power bi"],
+      tags: ["AWS", "Bedrock Agents", "Rest API", "Sagemaker", "Power bi"],
     },
     {
       company: "Pacifist Digi Creative Solutions Pvt Ltd.",
@@ -144,9 +144,8 @@ const ExperienceSection = () => {
 
       {/* Section title with visibility transition */}
       <div
-        className={`w-full transition-all duration-1000 delay-300 ${
-          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        className={`w-full transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
         style={{ zIndex: 1 }}
       >
         <h2 className="text-4xl 3xl:text-6xl text-center font-bold mb-2 3xl:mb-4">
@@ -179,30 +178,28 @@ const ExperienceSection = () => {
           >
             {/* Timeline dot with icon */}
             <div
-              className={`absolute left-0 p-4 3xl:p-6 rounded-full bg-gray-900 ${
-                exp.color === "purple"
-                  ? "border-2 3xl:border-4 border-purple-500"
-                  : exp.color === "cyan"
+              className={`absolute left-0 p-4 3xl:p-6 rounded-full bg-gray-900 ${exp.color === "purple"
+                ? "border-2 3xl:border-4 border-purple-500"
+                : exp.color === "cyan"
                   ? "border-2 3xl:border-4 border-cyan-500"
                   : exp.color === "blue"
-                  ? "border-2 3xl:border-4 border-blue-500"
-                  : "border-2 3xl:border-4 border-teal-500"
-              } z-10`}
+                    ? "border-2 3xl:border-4 border-blue-500"
+                    : "border-2 3xl:border-4 border-teal-500"
+                } z-10`}
             >
               <div className="3xl:scale-125">{exp.icon}</div>
             </div>
 
             {/* Content card */}
             <div
-              className={`bg-gray-900/50 backdrop-blur-sm border ${
-                exp.color === "purple"
-                  ? "border-purple-500/30 hover:border-purple-500 hover:shadow-purple-500/20"
-                  : exp.color === "cyan"
+              className={`bg-gray-900/50 backdrop-blur-sm border ${exp.color === "purple"
+                ? "border-purple-500/30 hover:border-purple-500 hover:shadow-purple-500/20"
+                : exp.color === "cyan"
                   ? "border-cyan-500/30 hover:border-cyan-500 hover:shadow-cyan-500/20"
                   : exp.color === "blue"
-                  ? "border-blue-500/30 hover:border-blue-500 hover:shadow-blue-500/20"
-                  : "border-teal-500/30 hover:border-teal-500 hover:shadow-teal-500/20"
-              } rounded-xl p-6 3xl:p-8 transition-all duration-300 shadow-lg`}
+                    ? "border-blue-500/30 hover:border-blue-500 hover:shadow-blue-500/20"
+                    : "border-teal-500/30 hover:border-teal-500 hover:shadow-teal-500/20"
+                } rounded-xl p-6 3xl:p-8 transition-all duration-300 shadow-lg`}
             >
               <div className="flex flex-wrap justify-between items-start mb-3 3xl:mb-4">
                 <h3 className="text-2xl 3xl:text-3xl font-bold flex items-center">
@@ -211,27 +208,25 @@ const ExperienceSection = () => {
                     href={exp.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`ml-2 ${
-                      exp.color === "purple"
-                        ? "text-purple-400 hover:text-purple-300"
-                        : exp.color === "cyan"
+                    className={`ml-2 ${exp.color === "purple"
+                      ? "text-purple-400 hover:text-purple-300"
+                      : exp.color === "cyan"
                         ? "text-cyan-400 hover:text-cyan-300"
                         : exp.color === "blue"
-                        ? "text-blue-400 hover:text-blue-300"
-                        : "text-teal-400 hover:text-teal-300"
-                    } transition-colors`}
+                          ? "text-blue-400 hover:text-blue-300"
+                          : "text-teal-400 hover:text-teal-300"
+                      } transition-colors`}
                   ></a>
                 </h3>
                 <div
-                  className={`${
-                    exp.color === "purple"
-                      ? "text-purple-400"
-                      : exp.color === "cyan"
+                  className={`${exp.color === "purple"
+                    ? "text-purple-400"
+                    : exp.color === "cyan"
                       ? "text-cyan-400"
                       : exp.color === "blue"
-                      ? "text-blue-400"
-                      : "text-teal-400"
-                  } font-medium 3xl:text-lg`}
+                        ? "text-blue-400"
+                        : "text-teal-400"
+                    } font-medium 3xl:text-lg`}
                 >
                   {exp.duration}
                 </div>
@@ -240,15 +235,14 @@ const ExperienceSection = () => {
               <div className="mb-4 3xl:mb-6">
                 <div className="flex items-center">
                   <span
-                    className={`text-xl 3xl:text-2xl font-medium ${
-                      exp.color === "purple"
-                        ? "text-purple-300"
-                        : exp.color === "cyan"
+                    className={`text-xl 3xl:text-2xl font-medium ${exp.color === "purple"
+                      ? "text-purple-300"
+                      : exp.color === "cyan"
                         ? "text-cyan-300"
                         : exp.color === "blue"
-                        ? "text-blue-300"
-                        : "text-teal-300"
-                    }`}
+                          ? "text-blue-300"
+                          : "text-teal-300"
+                      }`}
                   >
                     {exp.role}
                   </span>
@@ -274,9 +268,8 @@ const ExperienceSection = () => {
 
       {/* Bottom decoration */}
       <div
-        className={`w-full flex justify-center mt-8 3xl:mt-12 transition-all duration-1000 delay-1000 ${
-          visible ? "opacity-100" : "opacity-0"
-        }`}
+        className={`w-full flex justify-center mt-8 3xl:mt-12 transition-all duration-1000 delay-1000 ${visible ? "opacity-100" : "opacity-0"
+          }`}
       ></div>
     </section>
   );
