@@ -40,9 +40,8 @@ const HeroSection = () => {
         {/* Left section - Text content with fade-in animations */}
         <div className="md:w-1/2 mb-12 md:mb-0 max-w-2xl 3xl:max-w-3xl">
           <div
-            className={`transition-all duration-1000 delay-300 ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
+            className={`transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
           >
             <h1 className="text-3xl md:text-4xl lg:text-4xl 3xl:text-6xl mt-2 md:mt-16 leading-normal flex flex-col">
               <p className="rounded-full bg-neutral-800 px-3 py-1 mb-4 md:mb-6 3xl:mb-8 text-xs md:text-sm 3xl:text-base text-white inline-block self-start">
@@ -65,29 +64,27 @@ const HeroSection = () => {
                   </span>
                   with{" "}
                   <span className="text-cyan-500">
-                    <strong>AI-Powered </strong>
+                    <strong>Agentic-AI </strong>
                   </span>
                 </p>
-                automation
+                Systems
               </span>
             </h1>
           </div>
 
           <div
-            className={`transition-all duration-1000 delay-500 ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
+            className={`transition-all duration-1000 delay-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
           >
             <p className="text-xl md:text-2xl 3xl:text-3xl text-gray-200 mt-8 mb-8 max-w-full">
-              I&apos;m a data scientist specializing in data analytics, and AI
-              Automations that solve real-world problems
+              I&apos;m a data scientist specializing in data analytics, and Agentic-AI
+              Systems that solve real-world problems
             </p>
           </div>
 
           <div
-            className={`transition-all duration-1000 delay-700 ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
+            className={`transition-all duration-1000 delay-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
           >
             <div className="flex flex-col md:flex-row gap-4 md:gap-4 3xl:gap-6 mt-12 mb-10">
               <button
@@ -123,9 +120,8 @@ const HeroSection = () => {
 
         {/* Right section - Image with cyan border effect and fade-in */}
         <div
-          className={`md:w-1/2 flex justify-center md:justify-end transition-all duration-1000 delay-900 ${
-            visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-          }`}
+          className={`md:w-1/2 flex justify-center md:justify-end transition-all duration-1000 delay-900 ${visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+            }`}
         >
           <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg 3xl:max-w-2xl h-[350px] md:h-[600px] lg:h-[680px] 3xl:h-[800px]">
             <Image

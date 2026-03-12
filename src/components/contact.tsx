@@ -36,9 +36,9 @@ const ContactSection = () => {
       href: "https://www.instagram.com/ai_brooo/",
     },
     {
-      name: "G-Mail",
+      name: "G-Mail & Phone number: +916355284382",
       icon: <Mail size={20} />,
-      href: "mailto:shivanshu.ai.biz@gmail.com",
+      href: "mailto:shivanshug55@gmail.com",
     },
     {
       name: "Github",
@@ -215,9 +215,8 @@ const ContactSection = () => {
       {/* Header Section - Centered */}
       <div className="w-full max-w-4xl 3xl:max-w-6xl text-center mb-16 3xl:mb-24">
         <div
-          className={`transition-all duration-1000 delay-300 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
         >
           <h2 className="text-4xl 3xl:text-6xl font-bold mb-6 3xl:mb-8">
             <span className="text-white">
@@ -227,9 +226,8 @@ const ContactSection = () => {
         </div>
 
         <div
-          className={`transition-all duration-1000 delay-500 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
         >
           <p className="text-lg 3xl:text-xl text-gray-300">
             I&apos;m always open to new opportunities and collaborations.
@@ -262,16 +260,14 @@ const ContactSection = () => {
                   target="_blank"
                 >
                   <span
-                    className={`transition-all duration-200 ${
-                      hovered === social.name ? "text-white" : "text-gray-400"
-                    }`}
+                    className={`transition-all duration-200 ${hovered === social.name ? "text-white" : "text-gray-400"
+                      }`}
                   >
                     {social.icon}
                   </span>
                   <span
-                    className={`font-medium transition-all duration-200 ${
-                      hovered === social.name ? "text-white" : "text-gray-300"
-                    }`}
+                    className={`font-medium transition-all duration-200 ${hovered === social.name ? "text-white" : "text-gray-300"
+                      }`}
                   >
                     {social.name}
                   </span>
@@ -284,9 +280,8 @@ const ContactSection = () => {
         {/* 3D Globe - Right side */}
         <div className="w-full md:w-1/2 h-[400px] md:h-[500px] 3xl:h-[600px]">
           <div
-            className={`w-full h-full transition-all duration-1000 delay-700 ${
-              isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
-            }`}
+            className={`w-full h-full transition-all duration-1000 delay-700 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
+              }`}
           >
             <Globe />
           </div>

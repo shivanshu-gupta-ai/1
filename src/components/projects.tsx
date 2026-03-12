@@ -74,7 +74,7 @@ const Projects = () => {
         label2: "Annual Cost Saved",
         value2: "$250k",
       },
-      tags: ["Claude AI", "NLU", "AWS", "Cognigy"],
+      tags: ["Amazon Bedrock Agents", "Anthropic Claude", "Amazon Lex", "Amazon Connect"],
     },
     {
       title: "AI-Powered Auto-Reply Emails",
@@ -180,9 +180,8 @@ const Projects = () => {
   const headerSection = useMemo(
     () => (
       <div
-        className={`transition-all duration-1000 delay-300 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        className={`transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
       >
         <h2 className="text-4xl 3xl:text-6xl font-bold text-center mb-8 3xl:mb-12">
           <span className="text-white">
