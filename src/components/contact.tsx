@@ -36,9 +36,14 @@ const ContactSection = () => {
       href: "https://www.instagram.com/ai_brooo/",
     },
     {
-      name: "G-Mail & Phone number: +916355284382",
+      name: "G-Mail",
       icon: <Mail size={20} />,
       href: "mailto:shivanshug55@gmail.com",
+    },
+    {
+      name: "Phone number: +916355284382",
+      icon: <Mail size={20} />,
+      href: "tel:+916355284382",
     },
     {
       name: "Github",
